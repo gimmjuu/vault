@@ -1,0 +1,2 @@
+# MyObsidianVault
+obsidian-sync
