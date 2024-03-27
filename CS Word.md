@@ -1,0 +1,143 @@
+# Computer Science 단어 조사
+
+1. 하드웨어
+- CPU
+- RAM
+- ROM
+- GPU
+- GPGPU
+- CUDA
+- SSD
+- HDD
+  
+2. 자료구조
+- 배열
+링크드
+리스트
+스택
+큐
+트리
+  
+3. 패러다임
+- 절차적 프로그래밍
+OOP
+AOP
+함수형 프로그래밍
+
+4. 네트워크
+네트워크
+OSI 7 Layer
+라우터
+스위치
+클라우드
+IEEE
+서브넷마스크
+게이트웨이
+허브
+오픈플로우
+블루투스
+UDP
+TCP
+IP
+Port
+소켓
+Mac
+IPv4
+IPv6
+DNS
+LAN
+WAN
+MAN
+BAN
+CDMA
+LTE
+서버
+클라이언트
+  
+5. 인코딩
+아스키코드
+유니코드
+  
+6. 프로그래밍
+컴파일러
+인터프리터
+JIT 컴파일
+링커
+디버깅
+라이브러리
+API
+IDE
+프로세스
+쓰레드
+  
+7. API
+MFC
+다이렉트X
+Open GL
+Open CV
+Open CL
+boost
+게임엔진
+
+8. 자료형
+정적타입
+동적타입
+
+9. 아키텍쳐
+하버드 아키텍쳐
+폰노이만 아키텍쳐
+RISC
+CISC
+
+10. 인공지능
+딥러닝
+머신러닝
+빅데이터 
+
+11. 알고리즘
+시간복잡도
+공간복잡도
+  
+12. 파일 시스템
+FAT32
+NTFS
+exFAT
+  
+13. 용어
+UML
+순서도
+슈도코드
+  
+14. 언어
+C
+C++
+모던 C++
+Java
+HTML
+CSS
+JavaScript
+스위프트
+LISP
+  
+15. 운영체제
+리눅스 (우분투, 레드햇, 데비안, 라즈비안)
+유닉스
+OS
+Mac
+커널
+바이오스
+  
+16. 임베디드
+임베디드
+라즈베리파이
+아두이노
+에디슨
+펌웨어
+SoC
+  
+17. 기타
+해킹
+크래킹
+리버싱
+SI (System Integration)
+SM (System Management)
