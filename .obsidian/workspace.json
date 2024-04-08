@@ -11,8 +11,12 @@
             "id": "f1242c8bad74b141",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Python/psutil.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -65,7 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 237.5
   },
   "right": {
     "id": "017cc9534bb73bb8",
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Python/psutil.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Python/psutil.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Python/psutil.md"
+              }
             }
           }
         ]
@@ -140,12 +148,17 @@
   },
   "active": "f1242c8bad74b141",
   "lastOpenFiles": [
+    "Common/CS Word.md",
+    "Common",
+    "Docker.md",
+    "Linux/Docker.md",
+    "Linux",
+    "Python/psutil.md",
+    "Python/OpenCV.md",
     "C++/cpp.md",
     "C++",
     "LicenseKeyManagement.md",
     "Python/LicenseKeyManagement.md",
-    "Python/OpenCV.md",
-    "Python/psutil.md",
     "Python",
     "psutil.md",
     "OpenCV.md",
