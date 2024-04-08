@@ -27,56 +27,50 @@
 
 ### Python GETMAC
 
-- get_mac_address 하나의 메소드만 제공하는 Python 외장모듈
+- get_mac_address 하나의 메소드만 제공하는 Python 외장 모듈
 
-'''Python3
+```
 $ Python -m pip3 install getmac
-'''
+```
 
-'''Python3
+```python
 import getmac
 
 getmac.get_mac_address()
-'''
-
->>> 'XX:XX:XX:XX:XX:XX'
+```
+> *'XX:XX:XX:XX:XX:XX'*
 
 ### Python psutil
 
-'''Python3
+```python
 import psutil
 
 nics = psutil.net_if_addrs()
 print([j.address for j in nics[i] for i in nics if i!="lo" and j.family==17])
-'''
+```
 
-'''Python3
+```python
 nics = psutil.net_if_addrs()['eth0']
 
 for interface in nics:
    if interface.family == 17:
       print(interface.address)
-'''
+```
 
-'''Python3
+```python
 import psutil
 
 nics = psutil.net_if_addrs()
 mac_address = nics['Ethernet'][0].address
 print(mac_address)
-'''
-
->>> 네트워크 정보를 가진 Dictionary
+```
+> *네트워크 정보를 가진 Dictionary*
 
 ### Python uuid
 
-'''Python3
+```python
 import uuid
 
-node_ = uuid.getnode()
-mac = ':'.join(("%012X" % node_)[i:i+2] for i in range(0, 12, 2))
-'''
-
-'''Python3
-
-'''
+t_node = uuid.getnode()
+t_mac = ':'.join(("%012X" % node_)[i:i+2] for i in range(0, 12, 2))
+```
