@@ -4,12 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "72ff8357c32e9299",
+        "id": "b99eb530a6b149c4",
         "type": "tabs",
-        "dimension": 46.60452729693741,
         "children": [
           {
-            "id": "02e0966334c62ff1",
+            "id": "99476925138cb068",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -19,27 +18,21 @@
                 "source": false
               }
             }
-          }
-        ]
-      },
-      {
-        "id": "148b366a68416c3c",
-        "type": "tabs",
-        "dimension": 53.39547270306259,
-        "children": [
+          },
           {
-            "id": "d92773bf78217070",
+            "id": "d5ec607410b9d7c6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Summary.md",
+                "file": "AI/MLOps.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -106,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "AI/MLOps.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,7 +116,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "AI/MLOps.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -146,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "AI/MLOps.md"
               }
             }
           }
@@ -167,11 +160,15 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "02e0966334c62ff1",
+  "active": "d5ec607410b9d7c6",
   "lastOpenFiles": [
-    "Summary.md",
     "README.md",
+    "AI/MLOps.md",
+    "Summary.md",
+    "AI",
     "Template.md",
+    "Ledge.md",
+    "Python/ctypes.md",
     "C/C Programming.md",
     "Python/psutil.md",
     "C",
