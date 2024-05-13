@@ -13,26 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "d5ec607410b9d7c6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "AI/MLOps.md",
+                "file": "Common/자료구조.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -82,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "017cc9534bb73bb8",
@@ -99,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AI/MLOps.md",
+                "file": "Common/자료구조.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "AI/MLOps.md",
+                "file": "Common/자료구조.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AI/MLOps.md"
+                "file": "Common/자료구조.md"
               }
             }
           }
@@ -160,28 +146,30 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "d5ec607410b9d7c6",
+  "active": "99476925138cb068",
   "lastOpenFiles": [
-    "README.md",
+    "Common/CS Word.md",
+    "Common/자료구조.md",
     "AI/MLOps.md",
+    "Python/psutil.md",
+    "Python/OpenCV.md",
+    "Python/LicenseKeyManagement.md",
+    "Python/ctypes.md",
+    "Linux/Docker.md",
+    "C++/cpp.md",
+    "C/C Language.md",
+    "C/C Programming.md",
+    "README.md",
     "Summary.md",
     "AI",
     "Template.md",
     "Ledge.md",
-    "Python/ctypes.md",
-    "C/C Programming.md",
-    "Python/psutil.md",
     "C",
-    "Common/CS Word.md",
     "Common",
     "Docker.md",
-    "Linux/Docker.md",
     "Linux",
-    "Python/OpenCV.md",
-    "C++/cpp.md",
     "C++",
     "LicenseKeyManagement.md",
-    "Python/LicenseKeyManagement.md",
     "Python",
     "psutil.md",
     "OpenCV.md",
