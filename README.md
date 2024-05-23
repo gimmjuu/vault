@@ -1,4 +1,4 @@
-## Vault thing
+# Vault
 
 > obsidian-sync
 ---
