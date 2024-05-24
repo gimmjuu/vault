@@ -1,12 +1,12 @@
 ---
 tags:
-  - python
-  - pkg
-  - ctypes
+  - PYTHON
 ---
-### [Python에서 C/C++ 동적 라이브러리 불러오기]
+# ctypes
 
->파이썬3 내장 모듈 `ctypes` 불러오기
+### 📌 Python에서 C/C++ 동적 라이브러리 불러오기
+
+➰　파이썬3 내장 모듈 `ctypes` 불러오기
 
 ```python
 from ctypes import *
@@ -16,7 +16,7 @@ from ctypes import *
 import ctypes
 ```
 
-> 동적 라이브러리 호출
+➰　동적 라이브러리 호출
 
 ```python
 windll.LoadLibrary("setupapi.dll")

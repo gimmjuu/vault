@@ -1,9 +1,15 @@
 ---
-aliases:
-  - Horizontal
-cssclasses:
-  - Invalid
 tags:
-  - note
+  - TAG ONLY CAP
 ---
-> [!note] Sample Note. ^sampleblock
+
+## 🎇 {Heading 2}
+### 📌 {Heading 3}
+#### ⚡ {Heading 4}
+➰　{Subitem}
+`result`　*{...}*
+
+> 자주 쓰는 이모티콘
+> 🌟⭐⚡🔥🎇🎆🎈✨
+
+^sampleblock
