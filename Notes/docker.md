@@ -88,6 +88,11 @@ tags:
 #### ⚡ Docker Image 내려받기
 	$ docker pull {Image:tag}
 
+#### ⚡ Docker Image 삭제
+	$ docker rmi {Image:tag}
+	
+	$ docker rmi -f {Image:tag}
+
 ### 📌  Container 목록 출력
 	$ docker ps (-a)
 
@@ -155,7 +160,7 @@ tags:
 ### 📌 # 2. 페이지 캐시까지 삭제
 	$ sudo echo 3 > sudo /proc/sys/vm/drop_caches
 
-	$ sudo sudo sysctl -w vm.drop_caches=3
+	$ sudo sysctl -w vm.drop_caches=3
 
 ### 📌  GPU 사용 확인
 	$  nvidia-smi
@@ -410,3 +415,11 @@ $ docker compose config
 	- [2] `$ cat .env`
 	- [3] `$ cat docker-compose.yml`
 	- [4] `$ docker-compose config`
+
+
+https://docs.ultralytics.com/integrations/clearml/?h=clearml#configuring-clearml
+
+[Docker container 사용 시 에러 해결] RuntimeError: DataLoader worker (pid 17362) is killed by signal: Bus error.
+https://swanilee2.tistory.com/15
+https://jybaek.tistory.com/785
+

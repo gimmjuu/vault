@@ -51,3 +51,7 @@ $ sudo chown -R {user} {directory}
 
 $ sudo chown -R $USER $(pwd)
 ```
+
+### 📌 Swap 메모리 늘리기
+[Ubuntu 22.04 - Swap 메모리 늘리기]
+https://codechacha.com/ko/ubuntu-add-swap/#2-swap-%EB%A9%94%EB%AA%A8%EB%A6%AC-%ED%81%AC%EA%B8%B0-%ED%99%95%EC%9D%B8

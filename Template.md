@@ -1,15 +1,24 @@
 ---
 tags:
-  - TAG ONLY CAP
+  - TAG ONLY CAPITAL
 ---
 
+# {Heading 1}
 ## 🎇 {Heading 2}
 ### 📌 {Heading 3}
 #### ⚡ {Heading 4}
+
 ➰　{Subitem}
+
 `result`　*{...}*
 
-> 자주 쓰는 이모티콘
 > 🌟⭐⚡🔥🎇🎆🎈✨
+
+## 🎇 
+### 📌 
+```Python
+
+```
+#### ⚡ 예제: 
 
 ^sampleblock
