@@ -1,7 +1,6 @@
 ---
 tags:
   - AI
-  - ML
   - MLOPS
 ---
 ## 🎇 ClearML
@@ -24,13 +23,13 @@ api {
 
 ### 📌 Install clearml-serving CLI
 
-```
-$ pip3 install clearml-serving
+```bash
+pip3 install clearml-serving
 ```
 
 ### 📌 Create the Serving Service Controller
-```
-$ clearml-serving create --name "serving example"
+```bash
+clearml-serving create --name "serving example"
 ```
 *→ New Serving Service created: id=10c97da9513e4727b27fc05b01d8c6fa*
 
@@ -45,41 +44,41 @@ CLEARML_SERVING_TASK_ID="10c97da9513e4727b27fc05b01d8c6fa"
 ```
 
 ### 📌 Spin up the clearml-serving containers with docker-compose
-```
-$ cd docker && docker-compose --env-file example.env -f docker-compose-triton-gpu.yml up
+```bash
+cd docker && docker-compose --env-file example.env -f docker-compose-triton-gpu.yml up
 ```
 
 ### 📌 Register train model
-```
+```bash
 clearml-serving --id 10c97da9513e4727b27fc05b01d8c6fa model add --engine sklearn --endpoint "test_model_sklearn" --preprocess "examples/sklearn/preprocess.py" --name "train sklearn model - sklearn-model" --project "serving examples"
 ```
 
 ### 📌 Spin inference container
 1. Build container
-```
-$ docker build --tag clearml-serving-inference:latest -f clearml_serving/serving/Dockerfile .
+```bash
+docker build --tag clearml-serving-inference:latest -f clearml_serving/serving/Dockerfile .
 ```
 2. Spin container
-```
+```bash
 docker run -v ~/clearml.conf:/root/clearml.conf -p 8080:8080 -e CLEARML_SERVING_TASK_ID=10c97da9513e4727b27fc05b01d8c6fa -e CLEARML_SERVING_POLL_FREQ=5 clearml-serving-inference:latest
 ```
 3. Test inference endpoint
-```
+```bash
 curl -X POST "http://127.0.0.1:8080/serve/test_model_sklearn" -H "accept: application/json" -H "Content-Type: application/json" -d '{"x0": 1, "x1": 2}'
 ```
 
 ### 📌 Auto Deployment
-```
+```bash
 clearml-serving --id 10c97da9513e4727b27fc05b01d8c6fa model auto-update --engine sklearn --endpoint "test_model_sklearn_auto" --preprocess "examples/sklearn/preprocess.py" --name "train sklearn model auto" --project "serving examples" --max-versions 2`
 ```
 
 ### 📌 Monitoring
-```
+```bash
 clearml-serving --id 10c97da9513e4727b27fc05b01d8c6fa metrics add --endpoint test_model_sklearn --variable-scalar x0=0,0.1,0.5,1,10 x1=0,0.1,0.5,1,10 y=0,0.1,0.5,0.75,1
 ```
 
 ### 📌 Manually model registration
-```
+```bash
 clearml-serving --id 10c97da9513e4727b27fc05b01d8c6fa model upload --name "manual yolov8 model" --project "serving examples" --framework "onnx" --path ./best.pt
 ```
 *→ Model created and registered, new Model ID=febe809cdb90499f8982adf636fb547f*
@@ -89,6 +88,6 @@ clearml-serving --id 10c97da9513e4727b27fc05b01d8c6fa model upload --name "manua
 > tensorflow, tensorflowjs, tensorflowlite, pytorch, torchscript, caffe, caffe2, onnx, keras, mknet, cntk, torch, darknet, paddlepaddle, scikitlearn, xgboost, lightgbm, parquet, megengine, catboost, tensorrt, openvino, custom
 
 #### 📌 Add new endpoint
-```
+```bash
 clearml-serving --id 10c97da9513e4727b27fc05b01d8c6fa model add --engine sklearn --endpoint "test_model_yolov8" --preprocess "examples/sklearn/preprocess.py" --model-id febe809cdb90499f8982adf636fb547f
 ```

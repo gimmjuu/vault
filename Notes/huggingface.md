@@ -1,7 +1,7 @@
 ---
 tags:
-  - AI
   - DL
+  - PYTHON
 ---
 
 # Hugging Face 🤗

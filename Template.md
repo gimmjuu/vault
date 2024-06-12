@@ -12,7 +12,9 @@ tags:
 
 `result`　*{...}*
 
-> 🌟⭐⚡🔥🎇🎆🎈✨
+<span style="font-style: italic; letter-spacing: 2px; font-weight: 600; color: pink;"></span>
+
+> 🌟⭐⚡🔥🎇🎆🎈✨🚩
 
 ## 🎇 
 ### 📌 
@@ -20,5 +22,10 @@ tags:
 
 ```
 #### ⚡ 예제: 
+
+0. 
+```python
+
+```
 
 ^sampleblock

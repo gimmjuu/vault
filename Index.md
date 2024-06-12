@@ -1,14 +1,47 @@
-# Index for Notelink
+# Note Link Index
 
-> Tag only capital
-> FileName only lower case
+🚩 <span style="background: rgba(255,255,255,0.2)">Tag only capital</span><br>
+🚩 <span style="background: rgba(255,255,255,0.2)">FileName only lower case</span>
 
-- Computer Science
-    - Memory Hierarchy
+- CS
+  - [[memoryhierarchy]]
 
-- Linux
+- DB
+  - [[query]]
+
+- DEVELOP
+  - [[errors]]
+  - [[command]]
+  - Configuration
+    - [[toml]]
+
+- LINUX
+  - [[linux]]
+  - [[docker]]
+
+- PYTHON
+  - [[python]]
+  - PKG
+    - [[psutil]]
+    - [[ctypes]]
+    - [[subprocessing]]
+    - [[opencv]]
+    - [[win32com]]
+    - [[toml]]
+  - GUI
+    - [[kivy]]
+
+- COMPUTERVISION
+  - [[livestreaming]]
 
 - AI
-    - Machine Learning
-    - Deep Learning
-    - Hugging Face
+  - [[mlops]]
+      - [[clearml]]
+  - ML
+    - [[machinelearning]]
+  - DL
+    - [[deeplearning]]
+    - [[rnn]]
+    - [[lstm]]
+    - [[transformer]]
+    - [[huggingface]]

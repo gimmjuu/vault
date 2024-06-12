@@ -1,8 +1,7 @@
 ---
 tags:
-  - TAG ONLY CAP
-updated:
-
+  - PYTHON
+  - PKG
 ---
 
 # OpenCV
@@ -17,8 +16,8 @@ updated:
 
 ## 🎇 OpenCV 설치와 기초 사용
 
-```
-$ pip install opencv-python
+```bash
+pip install opencv-python
 ```
 
 ```Python

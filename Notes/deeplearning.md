@@ -83,12 +83,13 @@ classes = model.model.names
 YOLO(“yolov8n.pt”)
 ```
 
-#### ⚡ Error Note
-`ImportError: libGL.so.1`
+## 🎇 Reference
+### 📌 Triton?
+➰　NVIDIA Triton Inference Server (추론 서버)
 
-→ Docker 환경에서 OpenCV를 사용할 때, Docker에 누락된 cv2 종속성 으로 인한 문제
-
-```
-(해결)
-$ apt-get update && apt-get install libgl1
-```
+    ⊙ 워크로드에서 AI 모델의 배포 및 실행을 표준화하기 위한
+      오픈 소스 방식의 추론 제공 소프트웨어
+    ⊙ 주요 프레임워크 지원
+    ⊙ 동적 배치, 최적 실행 등 고성능 추론
+    ⊙ DevOps 및 MLOps 솔루션 통합 설계
+    ⊙ 지원, 보안 및 API 안정성

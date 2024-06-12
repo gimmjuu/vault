@@ -1,8 +1,7 @@
 ---
 tags:
   - AI
-  - ML
-  - MLOPS
+  - DEVELOP
 ---
 # 🌟 MLOps
 ➰　기계 학습 개발 운영 방식

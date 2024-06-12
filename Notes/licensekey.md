@@ -1,6 +1,7 @@
 ---
 tags:
   - LICENSE
+  - PYTHON
 ---
 # License Key Authentication
 

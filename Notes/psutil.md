@@ -1,10 +1,7 @@
 ---
-aliases:
-  - Horizontal
-cssclasses:
-  - Invalid
 tags:
-  - python
+  - PYTHON
+  - PKG
 ---
 
 # Python psutil
