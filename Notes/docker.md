@@ -8,37 +8,37 @@ tags:
 
 ## 🎇 기본 용어 정리
 
-### 📌  Docker
+### Docker
 
 - Go 언어로 작성된 *Linux Container* 기반 오픈소스 가상화 플랫폼
 	- Docker를 사용하는 이유 : 성능 향상, 뛰어난 이식성, scale out의 유연성
 	- 기존 os 가상화와 달리 process를 격리하여 훨씬 빠른 가상 환경 구축이 가능하다.
 
-### 📌  Docker Container
+### Docker Container
 
 - `$ docker run` 으로 실행한 하나의 프로세스 && 어떤 명령어를 실행하는 환경
 - 각 container는 독립적이다.  == '상태를 공유하지 않는다'
 	- container의 생애 주기: `생성` → `실행` → `종료` → `삭제
 
-### 📌  Docker Image
+### Docker Image
 
 - 컨테이너를 실행할 수 있는 실행 파일과 설정 값을 담은 것 *like application*
 	- Image를 컨테이너에 담고 실행하면 해당 프로세스가 동작한다.
 	- 상태 값을 가지지 않으며 변하지 않는다.
 
-### 📌  Docker File
+### Docker File
 
 - 이미지 생성 출발점, Docker Image 생성을 위한 스크립트(설정 파일)
 	- 이미지를 구성하기 위한 명령어들을 토대로 Docker File을 작성하여 빌드 하면 Docker는 Dockerfile에 나열된 명령문을 순차적으로 수행하여 Docker Image를 구성한다.
 	- Docker Hub에서 배포하는 Docker Image를 보완 또는 Image를 새롭게 구성하기 위해 사용한다.
     - 저장 용량이 큰 Docker Image보다 Dockerfile이 용량 면에서 배포에 유리하다.
 
-### 📌  Docker Hub
+### Docker Hub
 
 - 공유 저장소, Image를 저장하고 관리한다. (GitHub와 유사)
 	- `Image`를 `pull`한다.
 
-### 📌  Docker Registry
+### Docker Registry
 
 - Docker Hub와 달리 비공개로 격리된 저장소
 
@@ -48,9 +48,9 @@ tags:
 
 ## 🎇 Docker 명령어 형식
 
-### 📌  $ docker { sub-command } { options }
+### $ docker { sub-command } { options }
 
-### 📌  $ docker run
+### $ docker run
 
 - Linux Container 실행 명령어
 - 지시한 이미지를 기반으로 하위 명령어를 실행하여 결과를 출력하고 종료한다.  
@@ -58,14 +58,14 @@ tags:
 - bash -c
 	- 여러 명령어를 한 줄에서 실행
 
-### 📌  $ docker ps
+### $ docker ps
 
 - Container 목록을 출력한다.  
     default 설정으로 실행 중인 container만 출력한다.
 - -a
 	- 종료된 container까지 출력
 
-### 📌  $ docker exec
+### $ docker exec
 
 - Docker Container 환경 탐색 (디버깅)
 - -it
@@ -75,13 +75,13 @@ tags:
 
 ## 🎇 기본 명령어
 
-### 📌  Docker 설치
+### Docker 설치
 	$ curl -fsSL [https://get.docker.com](https://get.docker.com) | sudo sh
 
-### 📌  Docker 서비스 재 시작
+### Docker 서비스 재 시작
 	$ sudo systemctl restart docker.socket docker.service
 
-### 📌  Docker Image 목록 출력
+### Docker Image 목록 출력
 	$ docker images
 
 	$ docker image is
@@ -94,12 +94,12 @@ tags:
 	
 	$ docker rmi -f {Image:tag}
 
-### 📌  Container 목록 출력
+### Container 목록 출력
 	$ docker ps (-a)
 
 	$ docker container is
 
-### 📌  Container 실행 - run
+### Container 실행 - run
 	$ docker run -it -d --gpus all --name {container-name} -p 8888:8888 -v $(pwd):/workspace {image:tag}
 - `-it`
 	- -i : 표준 입력 활성화
@@ -117,117 +117,120 @@ tags:
 - --rm
 	- process 종료 시점에 container 자동 삭제
 
-### 📌  Container 시작
+### Container 시작
 	$ docker start {container}
 
-### 📌  Container 실행 : exec
+### Container 실행 : exec
 	$ docker exec -it {container} bash
 
 	$ docker exec -it {container} jupyter notebook --ip 0.0.0.0 --allow-root
 
-### 📌  Container Log 출력
+### Container Log 출력
 	$ docker logs -f {container}
 
-### 📌  Container 종료
+### Container 종료
 	$ docker stop container-name
 - container-name 대신 container-id 사용 가능
 - container-id 사용 시, 식별 가능하다면 전체 id를 입력하지 않아도 무방
 
-### 📌  Container 강제 종료
+### Container 강제 종료
 	$ docker kill container-name
 
-### 📌  Container 삭제
+### Container 삭제
 	$ docker rm container-name
 - -f
 	- 실행 중인 컨테이너 강제 종료 후 삭제
 
-### 📌  중지된 Container 일괄 삭제
+### 중지된 Container 일괄 삭제
 	$ docker container prune
 
 	$ prune system?
 
 ## 🎇 Docker : GPU 사용 시 메모리 확보
 
-### 📌  Memory 확인
+### Memory 확인
 	$ free -m
 
-### 📌  Cache memory 삭제
+### Cache memory 삭제
 
-### 📌 # 1. 버퍼 캐시 삭제
+#### 1. 버퍼 캐시 삭제
 	$ sudo echo 2 > sudo /proc/sys/vm/drop_caches
 
 	$ sudo sysctl -w vm.drop_caches=2
 
-### 📌 # 2. 페이지 캐시까지 삭제
+#### 2. 페이지 캐시까지 삭제
 	$ sudo echo 3 > sudo /proc/sys/vm/drop_caches
 
 	$ sudo sysctl -w vm.drop_caches=3
 
-### 📌  GPU 사용 확인
+### GPU 사용 확인
 	$  nvidia-smi
 
-### 📌  강제 종료한 프로세스 삭제
+### 강제 종료한 프로세스 삭제
 
-### 📌 # 1. 실행한 Process 목록 출력
+#### 1. 실행한 Process 목록 출력
 	$ ps aux | grep python
 
-### 📌 # 2. 강제 종료한 Process 삭제
+#### 2. 강제 종료한 Process 삭제
 	$ sudo kill -9 {process id}
 
 ## 🎇 Docker : jupyter-notebook
 
-### 📌  방법 1 : etc container + jupyter module
-	$ docker run -it -d - -name {jupyter} - -gqus all -p 8888:8888 -v $(pwd):/workspace {non-jupyter-image:tag}
+### 방법 1 : etc. container + jupyter module
 
-	$ docker exec -it {jupyter} bash
+```bash
+$ docker run -it -d - -name {jupyter} - -gqus all -p 8888:8888 -v $(pwd):/workspace {non-jupyter-image:tag}
 
-	$ pip install jupyter
+$ docker exec -it {jupyter} bash
 
-	$ jupyter notebook - -ip 0.0.0.0 - -allow-root
+$ pip install jupyter
+
+$ jupyter notebook - -ip 0.0.0.0 - -allow-root
+```
 
 #### ⚡ [other case] 이미 생성한 컨테이너
 	$ docker exec -it {jupyter} jupyter notebook - -ip 0.0.0.0 - -allow-root
 
-### 📌  방법 2 : jupyter-notebook container
+### 방법 2 : jupyter-notebook container
 	$ docker run -it -d - -name {jupyter} - -gqus all -p 8888:8888 -v $(pwd):/workspace {jupyter-image:tag}
 
 	$ docker logs -f {jupyter}
 
-### 📌  Finally 공통
+### Finally 공통
 ➰　컨테이너 실행 후 jupyter-notebook URL 접속 및 token 입력
 
 ## 🎇 Docker 컨테이너 사용자 계정 추가
 
-### 📌  Docker container를 root 이외의 사용자로 사용하고 싶을 때
+### Docker container를 root 이외의 사용자로 사용하고 싶을 때
 
-### 📌 # 1. root 계정의 일반 컨테이너 실행
+#### 1. root 계정의 일반 컨테이너 실행
 	$ docker run -it <image name> bash
 
-### 📌 # 2. 실행한 컨테이너에 새로운 사용자 정보 등록
+#### 2. 실행한 컨테이너에 새로운 사용자 정보 등록
 	$ adduser <user name>
 
 	$ exit
 
-### 📌 # 3. 사용자 계정을 추가한 컨테이너를 Docker Image로 빌드
+#### 3. 사용자 계정을 추가한 컨테이너를 Docker Image로 빌드
 	$ docker commit <container id> <new image name>
 
-### 📌 # 4. 해당 Docker Image로 컨테이너 생성
+#### 4. 해당 Docker Image로 컨테이너 생성
 	$ docker run -it -d --gpus all --name <container name> -u <user name> <new image name>
 
-### 📌 # 5. 컨테이너 실행
+#### 5. 컨테이너 실행
 	$ docker exec -it <new image name> bash
 
 `result`　jhi@96a737f944ac:/ $
 
 ## 🎇 Dockerfile
 
-### 📌  Dockerfile 작성
+### Dockerfile 작성
 ➰　Dockerfile 작성 시 파일 이름은 반드시 “Dockerfile” 이어야 한다.
 	$ mkdir {apache-dockerfile} && cd {apache-dockerfile}
 
 	$ vi Dockerfile
 
-### 📌  Dockerfile 명령어
+### Dockerfile 명령어
 
 - FROM
 	- 베이스 이미지
@@ -263,7 +266,7 @@ tags:
 	- `$ ENTRYPOINT [“{command}”, “{parameter 1}”, “{parameter 2}”]`
 	- `$ ENTRYPOINT {command} {parameter 1} {parameter 2}`
 
-### 📌  Dockerfile로 Docker Image Build
+### Dockerfile로 Docker Image Build
 	$ docker build -t {image-name:tag} {Dockerfile-path}
 
 ➰　`$ docker images` 명령어로 이미지 생성 확인
@@ -275,7 +278,7 @@ tags:
 - Docker Compose의 장점
 	- 하나의 정의로 여러 곳에서 동일 동작을 보장한다.
 
-### 📌  Docker Compose 설치
+### Docker Compose 설치
 **1. 설치**
 ```
 $ sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname - s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -297,7 +300,7 @@ $ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 $ docker-compose --version
 ```
 
-### 📌  Docker Compose .yml 작성
+### Docker Compose .yml 작성
 ➰　기존 Docker run 명령어를 YAML로 변환하는 방식
 
 ➰　docker compose는 탭을 인식하지 못 하기 때문에, YAML 파일 들여쓰기 시 공백 2개로 구분
@@ -320,7 +323,7 @@ $ docker-compose --version
 - depends_on
 	- 특정 컨테이너에 대한 의존 관계, 명시한 컨테이너 먼저 생성한 후 실행
 
-### 📌  Docker Compose 명령어
+### Docker Compose 명령어
 
 ➰　Docker Compose 명령어는 원래 `$ docker-compose` 이지만, docker 버전 업데이트 이후 `$ docker compose` 도 가능해짐
 
@@ -404,7 +407,7 @@ $ docker compose run {service} {command}
 $ docker compose config
 ```
 
-### 📌  Docker Compose .env
+### Docker Compose .env
 > Docker Compose에도 각 실행 환경에 따라 변경되어야 하는 옵션들이 있을 수 있다.
 >
 > 이때, 파일을 일일이 수정하는 건 비효율적
