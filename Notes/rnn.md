@@ -153,6 +153,3 @@ tags:
 # Reference
 <!-- [참조](https://ctkim.tistory.com/entry/RNNRecurrent-Neural-Network?category=1097443) -->
 [참조](https://heytech.tistory.com/440)
-
-<span style="color:pink;font-weight:600;"></span>
-<span style="color:rgba(255,255,135,0.8);font-weight:500;font-style:italic;"></span>
