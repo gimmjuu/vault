@@ -4,8 +4,11 @@ tags:
 ---
 
 # Errors
+
 ## 🎇 Image file
+
 ### `libpng warning: iCCP: known incorrect sRGB profile`
+
 - 이미지 파일 저장 옵션 문제
 ```bash
 sudo apt-get update
@@ -13,24 +16,31 @@ sudo apt-get install imagemagick
 cp -R <source_folder> <destination_folder>  # 이미지 백업
 mogrify *
 ```
+
 # Clang Error
+
 ## 🎇 C
 
 ## 🎇 C & C++
+
 ### `Error: command 'gcc' failed: No such file or directory: 'gcc'`
+
 - GCC 컴파일러 미설치 문제
 ```bash
 apt-get update && apt-get -y install gcc
 ```
 
 ## 🎇 C++
+
 ### `fatel error: wincodec.h 파일을 찾을 수 없습니다.`
+
 - Visual Studio에 포함된 헤더파일(`wincodec.h`)
 ```
 (수행) Build C++ in Visual Studio. (Not Visual Studio Code.)
 ```
 
 ### `fatal error RC1015: cannot open include file 'afxres.h'`
+
 - MFC에 포함된 헤더파일(`afxres.h`)
 ```
 (수행) Tools > Get tools and features > ... MFC ... install
@@ -38,23 +48,31 @@ apt-get update && apt-get -y install gcc
 
 
 # Linux Error
+
 ## 🎇 Linux & Python
+
 ### `ERROR: Could not install packages due to an OSError: [WinError 5]`
+
 - 사용자 계정 권한 문제
 ```bash
 pip install {package} --user
 ```
 
 ## 🎇 Linux & torch
+
 ### `torch install killed`
+
 - Linux Ubuntu에서 torch 설치할 때, 메모리 문제
 ```bash
 pip install torch --no-cache-dir
 ```
 
 # Docker Error
+
 ## 🎇 Docker
+
 ### `VS Code Error: connect EACCES /var/run/docker.sock`
+
 - vscode에서 docker를 사용할 때, 사용자 계정 권한 문제
 ```bash
 sudo groupadd docker
@@ -62,7 +80,9 @@ sudo usermod -aG docker $USER
 ```
 
 ## 🎇 Docker & OpenCV
-### `ImportError: libGL.so.1: cannot open shared object file: No such file or directory`
+
+### `ImportError: libGL.so.1: cannot open shared object file: No such
+ file or directory`
 - Docker 환경에서 OpenCV를 사용할 때, Docker에 누락된 cv2 종속성 문제
 ```bash
 apt-get update && apt-get install libgl1
@@ -70,6 +90,33 @@ apt-get update && apt-get install libgl1
 또는
 ```bash
 apt-get update && apt-get install ffmpeg libsm6 libxext6 -y
+```
+
+## 🎇 Docker & LangChain
+### ` [Errno 99] error while attempting to bind on address ('::1', 8000, 0, 0): cannot assign requested address`
+- Docker container에서 Langserve 실행 시 서버가 실행되지 못 하고 셧다운되는 문제
+
+```python
+if __name__ == "__main__":
+    import uvicorn
+    
+    uvicorn.run(app, host="localhost", port=8000)
+```
+를
+```python
+if __name__ == "__main__":
+    import uvicorn
+    
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+```
+으로 수정하면 됨
+
+## 🎇 Docker & LangChain
+
+### `ModuleNotFoundError: No module named 'langchain_chroma'`
+
+```bash
+pip install langchain_chroma
 ```
 
 # Python Error

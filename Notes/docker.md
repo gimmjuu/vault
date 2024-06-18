@@ -146,6 +146,27 @@ tags:
 
 	$ prune system?
 
+### 💥 삭제할 container 필터링하기
+
+> 동일한 IMAGE를 사용한 CONTAINER 일괄 삭제
+
+```bash
+docker rm $(docker ps -a -q -f "ancestor={IMAGE:tag or ID}")
+# Example
+docker rm $(docker ps -a -q -f "ancestor=license-manager")
+```
+
+> 상태가 'EXITED'인 CONTAINER 일괄 삭제
+
+```bash
+docker rm $(docker ps -f "status=exited" -a -q)
+# ==
+docker rm $(docker ps --filter "status=exited" --all --quiet)
+# ==
+docker rm $(docker ps --filter "exited=0" -a -q)
+```
+
+
 ## 🎇 Docker : GPU 사용 시 메모리 확보
 
 ### Memory 확인

@@ -1,0 +1,24 @@
+/* h3 { color: hsla(237deg 74% 33% / 61%); } */
+a { font-style: none; color: green; }
+h4 { padding: 6px 12px; }
+img { width: 48%; display: block; margin: 10px auto; ; border-radius:3px; }
+figcaption { text-align: center; font-size: 11px; opacity: 0.75; }
+/* details summary { padding-bottom:10px; } */
+details summary { margin-bottom: 10px; padding: 0px 8px; }
+
+[class*="_fontsmall"] { font-size: 13px; }
+[class*="_yellow"] { color: rgba(255,255,155,0.8); }
+[class*="_pink"] { color: pink; }
+[class*="_pinksmall"] { color: pink; font-size: 13px; font-weight: 600; }
+[class*="_500"] { font-weight: 500; }
+[class*="_600"] { font-weight: 600; }
+[class*="_italic"] { font-style: italic; }
+[class*="_bgred"] { background: rgba(214, 122, 127,0.10) }
+[class*="_bgyellow"] { background: rgba(255,255,155,0.15) }
+[class*="_bgblue"] { background: rgba(135,155,255,0.15); }
+[class*="_bggreen"] { background: rgba(135,255,135,0.10); }
+[class*="_footnote"] { font-weight: 600; font-style: italic; opacity: 0.75; }
+[class*="_m_tp"] { margin-top: 10px; }
+[class*="_m_bt"] { margin-bottom: 10px; }
+[class*="_m_lf"] { margin-left: 10px; }
+[class*="_m_rg"] { margin-right: 10px; }
