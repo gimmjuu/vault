@@ -125,10 +125,8 @@ tags:
 ### Build a Simple LLM Application with LCEL
 
 <details>
-<summary class="_bgblue"></summary>
-
-#### 1. Setup
-
+    <summary class="_bgblue">1. Setup</summary>
+    
 ```bash
 pip install langchain
 ```
@@ -166,9 +164,11 @@ from dotenv import find_dotenv, load_dotenv
 dotenv_path = find_dotenv("../Assets/.env")
 assert load_dotenv(dotenv_path=dotenv_path), "`.env` file cannot found."
 ```
+</details>
 
-#### 2. Using Language Models
-
+<details>
+    <summary class="_bgblue">2. Using Language Models</summary>
+    
 <details>
   <summary class="_pinksmall">Cohere?</summary>
 
@@ -206,12 +206,14 @@ messages = [
 model.invoke(messages)
 ```
 
-```console
-AIMessage(content='ciao!', response_metadata={'token_usage': {'completion_tokens': 3, 'prompt_tokens': 14, 'total_tokens': 17}, 'model_name': 'command-r'}, id='run-c8071053-c633-4d16-b356-68e632731c71')
+```bash
+>>> AIMessage(content='ciao!', response_metadata={'token_usage': {'completion_tokens': 3, 'prompt_tokens': 14, 'total_tokens': 17}, 'model_name': 'command-r'}, id='run-c8071053-c633-4d16-b356-68e632731c71')
 ```
+</details>
 
-#### 3. OutputParsers
-
+<details>
+    <summary class="_bgblue">3. OutputParsers</summary>
+    
 ```python
 from langchain_core.output_parsers import StrOutputParser
 
@@ -221,8 +223,8 @@ parser = StrOutputParser()
 parser.invoke(result)
 ```
 
-```console
-'Ciao!'
+```bash
+>>> 'Ciao!'
 ```
 
 ```python
@@ -230,12 +232,14 @@ chain = model | parser
 chain.invoke(message)
 ```
 
-```console
-'Ciao!'
+```bash
+>>> 'Ciao!'
 ```
+</details>
 
-#### 4. Prompt Templates
-
+<details>
+    <summary class="_bgblue">4. Prompt Templates</summary>
+    
 - `language`: The language to translate text into
 - `text`: The text to translate
 
@@ -250,21 +254,23 @@ prompt_template = ChatPromptTemplate.from_messages(
 result = prompt_template.invoke({"language": "italian", "text": "hi"})
 ```
 
-```console
-ChatPromptValue(messages=[SystemMessage(content='Translate the following into italian:'), HumanMessage(content='hi')])
+```bash
+>>> ChatPromptValue(messages=[SystemMessage(content='Translate the following into italian:'), HumanMessage(content='hi')])
 ```
 
 ```python
 result.to_messages()
 ```
 
-```console
-[SystemMessage(content='Translate the following into italian:'),
+```bash
+>>> [SystemMessage(content='Translate the following into italian:'),
  HumanMessage(content='hi')]
 ```
+</details>
 
-#### 5. Chaining together components with LCEL
-
+<details>
+    <summary class="_bgblue">5. Chaining together components with LCEL</summary>
+    
 - `LangChain Expression Language`
 - The `|` operator is used in LangChain to combine two elements together.
 
@@ -273,11 +279,13 @@ chain = prompt_template | model | parser
 chain.invoke({"language": "italian", "text": "hi"})
 ```
 
-```console
-'Ciao!'
+```bash
+>>> 'Ciao!'
 ```
+</details>
 
-#### Final
+<details>
+  <summary class="_bgblue">Final</summary>
 
 ```bash
 pip install langchain
@@ -310,8 +318,8 @@ chain = prompt_template | model | parser
 chain.invoke({"language": "italian", "text": "hi"})
 ```
 
-```console
-'Ciao!'
+```bash
+>>> 'Ciao!'
 ```
 </details>
 
@@ -319,14 +327,410 @@ chain.invoke({"language": "italian", "text": "hi"})
 
 #### Concepts
 
-- Have a conversation
-- Remember previous interactions
+- `Chat Models`
+  - Have a conversation
+- `Prompt Templates`
+- `Chat History`
+  - Remember previous interactions
+- `Trace`
+  - Using LangSmith
 
 <details>
-  <summary class="_bgblue"></summary>
+  <summary class="_bgblue">1. Setup</summary>
 
-#### 1. Setup
+```bash
+pip install langchain  # 랭체인
+pip install python-dotenv  # 환경변수
+pip install -qU langchain-cohere  # 코히어
+```
 
+```python
+from dotenv import find_dotenv, load_dotenv
+
+dotenv_path = find_dotenv("../Assets/.env")
+assert load_dotenv(dotenv_path=dotenv_path), "`.env` file cannot found."
+```
+
+```python
+from langchain_cohere import ChatCohere
+
+model = ChatCohere(model="command-r")
+```
+
+```python
+from langchain_core.messages import HumanMessage
+
+model.invoke([HumanMessage(content="Hi! I'm Bob")])
+```
+
+```bash
+>>> AIMessage(content="Hi Bob! It's nice to meet you. How's it going today?", additional_kwargs={'documents': None, 'citations': None, 'search_results': None, 'search_queries': None, 'is_search_required': None, 'generation_id': 'a4a728b6-e527-4a99-b28d-b6ed59dee8ca', 'token_count': {'input_tokens': 71, 'output_tokens': 16}}, response_metadata={'documents': None, 'citations': None, 'search_results': None, 'search_queries': None, 'is_search_required': None, 'generation_id': 'a4a728b6-e527-4a99-b28d-b6ed59dee8ca', 'token_count': {'input_tokens': 71, 'output_tokens': 16}}, id='run-9911711a-ce5c-4985-b058-6f2aad83b513-0')
+```
+
+```python
+model.invoke([HumanMessage(content="What's my name?")])
+```
+
+```bash
+>>> AIMessage(content="I'm sorry, but as an AI chatbot, I don't know your name. If you don't mind, you can share it with me, and I'd be delighted to address you by it.", additional_kwargs={'documents': None, 'citations': None, 'search_results': None, 'search_queries': None, 'is_search_required': None, 'generation_id': '9659f403-3e03-4bb5-a52f-512decaab756', 'token_count': {'input_tokens': 71, 'output_tokens': 42}}, response_metadata={'documents': None, 'citations': None, 'search_results': None, 'search_queries': None, 'is_search_required': None, 'generation_id': '9659f403-3e03-4bb5-a52f-512decaab756', 'token_count': {'input_tokens': 71, 'output_tokens': 42}}, id='run-de4944f2-0aa6-4ff6-9bcb-7ed785ca55b9-0')
+```
+
+```python
+from langchain_core.messages import AIMessage
+
+model.invoke([
+    HumanMessage(content="Hi! I'm Bob"),
+    AIMessage(content="Hello Bob! How can I assist you today?"),
+    HumanMessage(content="What's my name?")
+])
+```
+
+```bash
+>>> AIMessage(content="Your name is Bob! How's it going, Bob?", additional_kwargs={'documents': None, 'citations': None, 'search_results': None, 'search_queries': None, 'is_search_required': None, 'generation_id': '605cfe10-29ef-4a41-977f-5234c7a477bf', 'token_count': {'input_tokens': 92, 'output_tokens': 12}}, response_metadata={'documents': None, 'citations': None, 'search_results': None, 'search_queries': None, 'is_search_required': None, 'generation_id': '605cfe10-29ef-4a41-977f-5234c7a477bf', 'token_count': {'input_tokens': 92, 'output_tokens': 12}}, id='run-54716f41-57d1-4033-9443-71a9379fe9a6-0')
+```
+
+</details>
+
+<details>
+    <summary class="_bgblue">2. Message History</summary>
+    
+```bash
+pip install langchain_community
+```
+
+```python
+from langchain_community.chat_message_histories import ChatMessageHistory
+from langchain_core.chat_history import BaseChatMessageHistory
+from langchain_core.runnables.history import RunnableWithMessageHistory
+
+store = {}
+
+
+def get_session_history(session_id: str) -> BaseChatMessageHistory:
+    if session_id not in store:
+        store[session_id] = ChatMessageHistory()
+    return store[session_id]
+
+
+with_message_history = RunnableWithMessageHistory(model, get_session_history)
+```
+
+```python
+config = {"configurable": {"session_id": "abc2"}}
+
+response = with_message_history.invoke(
+    [HumanMessage(content="Hi! I'm Bob")],
+    config=config,
+)
+
+response.content
+```
+
+```bash
+>>> "Hi Bob! It's nice to meet you. How's it going today?"
+```
+
+```python
+response = with_message_history.invoke(
+    [HumanMessage(content="What's my name?")],
+    config=config
+)
+
+response.content
+```
+
+```bash
+>>> 'Your name is Bob! Did you forget already?'
+```
+
+```python
+config = {"configurable": {"session_id": "abc3"}}
+
+response = with_message_history.invoke(
+    [HumanMessage(content="What's my name?")],
+    config=config
+)
+
+response.content
+```
+
+```bash
+>>> "I'm sorry, but as an AI chatbot, I don't know your name. The name is probably mentioned a lot in everyday conversation, though!"
+```
+
+```bash
+>>> 'I truly have no way of knowing your name. Perhaps you could provide a hint, or even better, share your name with me! I promise not to tell anyone.'
+```
+
+```python
+config = {"configurable": {"session_id": "abc2"}}
+
+response = with_message_history.invoke(
+    [HumanMessage(content="What's my name?")],
+    config=config
+)
+
+response.content
+```
+
+```bash
+>>> "Your name is Bob! You introduced yourself as Bob earlier. It's a pleasure to virtually meet you, Bob! How are you doing today? Would you like some suggestions for fun activities or places named Bob?"
+```
+</details>
+
+<details>
+    <summary class="_bgblue">3. Prompt Templates</summary>
+
+```python
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+
+prompt = ChatPromptTemplate.from_messages([
+    (
+        "system",
+        "You are helpful assistant. Answer all questions to the best of your ability.",
+    ),
+    MessagesPlaceholder(variable_name="messages"),
+])
+
+chain = prompt | model
+```
+
+```python
+response = chain.invoke({"messages": [HumanMessage(content="Hi! I'm Bob")]})
+
+response.content
+```
+
+```bash
+>>> "Hi Bob! It's nice to meet you. How's it going?"
+```
+
+```python
+with_message_history = RunnableWithMessageHistory(chain, get_session_history)
+
+config = {"configurable": {"session_id": "abc5"}}
+
+response = with_message_history.invoke(
+    [HumanMessage(content="Hi! I'm Jim")],
+    config=config
+)
+
+response.content
+```
+
+```bash
+>>> "Hi Jim! It's nice to meet you. How's it going?"
+```
+
+```python
+response = with_message_history.invoke(
+    [HumanMessage(content="What's my name")],
+    config=config
+)
+
+response.content
+```
+
+```bash
+>>> 'Your name is Jim! Did you forget already?'
+```
+
+```python
+prompt = ChatPromptTemplate.from_messages([
+    (
+        "system",
+        "You are a helpful assistant. Answer all questions to the best of your ability in {language}."
+    ),
+    MessagesPlaceholder(variable_name="messages")
+])
+
+chain = prompt | model
+
+response = chain.invoke(
+    {"messages": [HumanMessage(content="Hi! I'm Bob")], "language": "Japanese"}
+)
+
+response.content
+```
+
+```bash
+'Hello! Nice to meet you, Bob! I hope we can be good friends. 😊\nIn Japanese: こんにちは、ボブ！ 私もきっと良い友人になれると思います！ 😊'
+```
+
+```python
+with_message_history = RunnableWithMessageHistory(
+    chain,
+    get_session_history,
+    input_messages_key="messages"
+)
+
+config = {"configurable": {"session_id": "abc11"}}
+
+response = with_message_history.invoke(
+    {"messages": [HumanMessage(content="Hi! I'm todd")], "language": "Korean"},
+    config=config
+)
+
+response.content
+```
+
+```bash
+>>> '안녕하세요! 저는 todd 입니다. 반가워요!'
+```
+
+```python
+response = with_message_history.invoke(
+    {"messages": [HumanMessage(content="What's my name")], "language": "Korean"},
+    config=config
+)
+
+response.content
+```
+
+```bash
+>>> '당신의 이름은 토드입니다!'
+```
+</details>
+
+<details>
+    <summary class="_bgblue">4. Managing Conversation History</summary>
+    
+```python
+from langchain_core.messages import SystemMessage, trim_messages
+
+trimmer = trim_messages(
+    max_tokens=65,
+    strategy="last",
+    token_counter=model,
+    include_system=True,
+    allow_partial=False,
+    start_on="human",
+)
+
+messages = [
+    SystemMessage(content="you're a good assistant"),
+    HumanMessage(content="whats 2 + 2"),
+    AIMessage(content="4"),
+    HumanMessage(content="thanks"),
+    AIMessage(content="no problem!"),
+    HumanMessage(content="having fun?"),
+    AIMessage(content="yes!"),
+]
+
+trimmer.invoke(messages)
+```
+
+```bash
+>>> [SystemMessage(content="you're a good assistant"),
+  HumanMessage(content='whats 2 + 2'),
+  AIMessage(content='4'),
+  HumanMessage(content='thanks'),
+  AIMessage(content='no problem!'),
+  HumanMessage(content='having fun?'),
+  AIMessage(content='yes!')]
+```
+
+```python
+from operator import itemgetter
+from langchain_core.runnables import RunnablePassthrough
+
+chain = (
+    RunnablePassthrough.assign(messages=itemgetter("messages") | trimmer)
+    | prompt
+    | model
+)
+
+response = chain.invoke({
+    "messages": messages + [HumanMessage(content="what's my name?")],
+    "language": "English",
+})
+
+response.content
+```
+
+```bash
+>>> "I'm sorry, I can't help you with that as you haven't mentioned your name. If you tell me your name, I'll be happy to greet you!"
+```
+
+```python
+response = chain.invoke({
+    "messages": messages + [HumanMessage(content="what math problem did i ask")],
+    "language": "English",
+})
+
+response.content
+```
+
+```bash
+>>> 'You asked "what\'s 2 + 2?"'
+```
+
+```python
+with_message_history = RunnableWithMessageHistory(
+    chain,
+    get_session_history,
+    input_messages_key="messages"
+)
+
+config = {"configurable": {"session_id": "abc20"}}
+
+response = with_message_history.invoke(
+    {
+        "messages": messages + [HumanMessage(content="what's my name?")],
+        "language": "English",  
+    },
+    config=config
+)
+
+response.content
+```
+
+```bash
+"I'm sorry, I can't figure that out. You haven't introduced yourself yet! Who do you want to be called?"
+```
+
+```python
+response = with_message_history.invoke(
+    {
+        "messages": [HumanMessage(content="what math problem did i ask?")],
+        "language": "English",
+    },
+    config=config,
+)
+
+response.content
+```
+
+```bash
+>>> "You haven't asked a math problem yet. Feel free to ask any math question you have, and I'll do my best to help you with it."
+```
+</details>
+
+<details>
+    <summary class="_bgblue">5. Streaming</summary>
+    
+```python
+config = {"configuration": {"session_id": "abc15"}}
+
+for rsp in with_message_history.stream(
+    {
+        "messages": [HumanMessage(content="Hi! I'm Joo. Tell me a joke.")],
+        "language": "English"
+    },
+    config=config
+):
+    print(rsp.content, end="|")
+```
+
+```bash
+>>> Hi| there|,| Joo|!| I| hope| you|'re| having| a| fantastic| day| so| far|!| Check| out| this| joke|:|
+Where| do| you| find| a| dog| with| no| legs|?|
+Right| where| you| left| him|!|
+La|ughter| is| the| best| medicine|,| have| a| humorous| day| ahead|!|Hi there, Joo! I hope you're having a fantastic day so far! Check out this joke:
+Where do you find a dog with no legs?
+Right where you left him! 
+Laughter is the best medicine, have a humorous day ahead!|
+```
 </details>
 
 ### Build a Retrieval Augmented Generation (RAG) App
@@ -350,10 +754,10 @@ chain.invoke({"language": "italian", "text": "hi"})
   - 4. *Retrieval*
   - 5. *Generation*
 
-#### Setup
+#### Preview
 
 <details>
-  <summary class="_bgblue"></summary>
+  <summary class="_bgblue">Setup</summary>
 
 ```bash
 pip install langchain
@@ -368,10 +772,8 @@ assert load_dotenv(dotenv_path=dotenv_path), "`.env` file cannot found."
 ```
 </details>
 
-#### Preview
-
 <details>
-  <summary class="_bgblue"></summary>
+  <summary class="_bgblue">Preview</summary>
 
 ```python
 from langchain_cohere import ChatCohere
@@ -384,7 +786,7 @@ pip install beautifulsoup4
 ```
 
 <details>
-    <summary class="_pinksmall">$if$ `langchain_chroma` Module Error occured</summary>
+    <summary class="_pinksmall"><span class="_italic">if.</span> <code>langchain_chroma</code> Module Error occured</summary>
     
 ```bash
 pip install langchain_chroma
@@ -435,8 +837,8 @@ rag_chain = (
 rag_chain.invoke("What is Task Decomposition?")
 ```
 
-```python
-"Task decomposition is a process that involves breaking down complicated tasks into simpler, more manageable steps to aid an agent's planning process. It can be executed by an LLM with specific prompts, using task-specific instructions, or with human input. This technique helps enhance model performance and provides insight into the model's thought process."
+```bash
+>>> "Task decomposition is a process that involves breaking down complicated tasks into simpler, more manageable steps to aid an agent's planning process. It can be executed by an LLM with specific prompts, using task-specific instructions, or with human input. This technique helps enhance model performance and provides insight into the model's thought process."
 ```
 
 ```python
@@ -448,10 +850,8 @@ vectorstore.delete_collection()
 #### Detailed Walkthrough
 
 <details>
-  <summary class="_bgblue"></summary>
-
-##### 1. Indexing: Load
-
+    <summary class="_bgblue">1. Indexing: Load</summary>
+    
 ```python
 import bs4
 from langchain_community.document_loaders import WebBaseLoader
@@ -467,16 +867,16 @@ docs = loader.load()
 len(docs[0].page_content)
 ```
 
-```python
-43131
+```bash
+>>> 43131
 ```
 
 ```python
 print(docs[0].page_content[:500])
 ```
 
-```python
-
+```bash
+>>> 
 
       LLM Powered Autonomous Agents
     
@@ -487,9 +887,11 @@ Building agents with LLM (large language model) as its core controller is a cool
 Agent System Overview#
 In
 ```
+</details>
 
-##### 2. Indexing: Split
-
+<details>
+    <summary class="_bgblue">2. Indexing: Split</summary>
+    
 ```python
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
@@ -501,37 +903,42 @@ all_splits = text_splitter.split_documents(docs)
 len(all_splits)
 ```
 
-```python
-66
+```bash
+>>> 66
 ```
 
 ```python
 len(all_splits[0].page_content)
 ```
 
-```python
-969
+```bash
+>>> 969
 ```
 
 ```python
 all_splits[10].metadata
 ```
 
-```python
-{'source': 'https://lilianweng.github.io/posts/2023-06-23-agent/',
+```bash
+>>> {'source': 'https://lilianweng.github.io/posts/2023-06-23-agent/',
  'start_index': 7056}
 ```
+</details>
 
-##### 3. Indexing: Store
+<details>
+    <summary class="_bgblue">3. Indexing: Store</summary>
+
 ```python
 from langchain_chroma import Chroma
 from langchain_openai import OpenAIEmbeddings
 
 vectorstore = Chroma.from_documents(documents=all_splits, embedding=OpenAIEmbeddings())
 ```
+</details>
 
-##### 4. Retrieval and Generation: Retrieve
-
+<details>
+    <summary class="_bgblue">4. Retrieval and Generation: Retrieve</summary>
+    
 ```python
 retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 6})
 
@@ -540,8 +947,8 @@ retrieved_docs = retriever.invoke("What are the approaches to Task Decomposition
 len(retrieved_docs)
 ```
 
-```python
-6
+```bash
+>>> 6
 ```
 
 ```python
@@ -555,8 +962,10 @@ A complicated task usually involves many steps. An agent needs to know what they
 Task Decomposition#
 Chain of thought (CoT; Wei et al. 2022) has become a standard prompting technique for enhancing model performance on complex tasks. The model is instructed to “think step by step” to utilize more test-time computation to decompose hard tasks into smaller and simpler steps. CoT transforms big tasks into multiple manageable tasks and shed lights into an interpretation of the model’s thinking process.
 ```
+</details>
 
-##### 5. Retrieval and Generation: Generate
+<details>
+    <summary class="_bgblue">5. Retrieval and Generation: Generate</summary>
 
 ```bash
 pip install langchain
@@ -712,7 +1121,6 @@ rag_chain.invoke("What is Task Decomposition?")
 "Task decomposition breaks big tasks into simpler, manageable steps for an agent to follow. It uses Chain of Thought prompting or other methods to guide the agent's planning process. Thanks for asking!"
 ```
 </details>
-
 
 # *Reference*
 
