@@ -13,6 +13,7 @@
   - [[errors]]
   - [[command]]
   - Configuration
+    - [[dotenv]]
     - [[toml]]
 
 - LINUX

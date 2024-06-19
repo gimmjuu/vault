@@ -6,7 +6,7 @@ tags:
   - LLM
 ---
 
-<link rel="stylesheet" href="../style.css" />
+<link rel="stylesheet" href="../Assets/style.css" />
 
 # LangChain
 
@@ -142,15 +142,29 @@ export LANGCHAIN_TRACING_V2="true"
 export LANGCHAIN_API_KEY="..."
 ```
 
-- Source Code
+- pkg 1. `getpass`
+  - console 창에서 직접 입력
 
 ```python
-import getpass
 import os
+import getpass
 
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
 os.environ["LANGCHAIN_API_KEY"] = getpass.getpass()
-# os.environ["LANGCHAIN_API_KEY"] = "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"
+```
+
+- pkg 2. `dotenv`
+  - .env 파일 호출
+
+```bash
+pip install python-dotenv
+```
+
+```python
+from dotenv import find_dotenv, load_dotenv
+
+dotenv_path = find_dotenv("../Assets/.env")
+assert load_dotenv(dotenv_path=dotenv_path), "`.env` file cannot found."
 ```
 
 #### 2. Using Language Models
@@ -168,11 +182,10 @@ pip install -qU langchain-cohere
 ```
 
 ```python
-import getpass
-import os
+from dotenv import find_dotenv, load_dotenv
 
-os.environ["COHERE_API_KEY"] = getpass.getpass()
-# os.environ["COHERE_API_KEY"] = "4BtT07HreyYG7DWIcOPYRq5jwU5lBEW8VkUzaBNZ"
+dotenv_path = find_dotenv("../Assets/.env")
+assert load_dotenv(dotenv_path=dotenv_path), "`.env` file cannot found."
 ```
 
 ```python
@@ -193,11 +206,12 @@ messages = [
 model.invoke(messages)
 ```
 
-```python
+```console
 AIMessage(content='ciao!', response_metadata={'token_usage': {'completion_tokens': 3, 'prompt_tokens': 14, 'total_tokens': 17}, 'model_name': 'command-r'}, id='run-c8071053-c633-4d16-b356-68e632731c71')
 ```
 
 #### 3. OutputParsers
+
 ```python
 from langchain_core.output_parsers import StrOutputParser
 
@@ -206,18 +220,22 @@ result = model.invoke(message)
 parser = StrOutputParser()
 parser.invoke(result)
 ```
-```python
+
+```console
 'Ciao!'
 ```
+
 ```python
 chain = model | parser
 chain.invoke(message)
 ```
-```python
+
+```console
 'Ciao!'
 ```
 
 #### 4. Prompt Templates
+
 - `language`: The language to translate text into
 - `text`: The text to translate
 
@@ -231,18 +249,22 @@ prompt_template = ChatPromptTemplate.from_messages(
 
 result = prompt_template.invoke({"language": "italian", "text": "hi"})
 ```
-```python
+
+```console
 ChatPromptValue(messages=[SystemMessage(content='Translate the following into italian:'), HumanMessage(content='hi')])
 ```
+
 ```python
 result.to_messages()
 ```
-```python
+
+```console
 [SystemMessage(content='Translate the following into italian:'),
  HumanMessage(content='hi')]
 ```
 
 #### 5. Chaining together components with LCEL
+
 - `LangChain Expression Language`
 - The `|` operator is used in LangChain to combine two elements together.
 
@@ -250,7 +272,8 @@ result.to_messages()
 chain = prompt_template | model | parser
 chain.invoke({"language": "italian", "text": "hi"})
 ```
-```python
+
+```console
 'Ciao!'
 ```
 
@@ -262,12 +285,11 @@ pip install -qU langchain-cohere
 ```
 
 ```python
-import os
-
 # 환경변수 구성
-os.environ["LANGCHAIN_TRACING_V2"] = "true"
-os.environ["LANGCHAIN_API_KEY"] = "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"
-os.environ["COHERE_API_KEY"] = "4BtT07HreyYG7DWIcOPYRq5jwU5lBEW8VkUzaBNZ"
+from dotenv import find_dotenv, load_dotenv
+
+dotenv_path = find_dotenv("../Assets/.env")
+assert load_dotenv(dotenv_path=dotenv_path), "`.env` file cannot found."
 
 from langchain_cohere import ChatCohere
 from langchain_core.prompts import ChatPromptTemplate
@@ -288,11 +310,10 @@ chain = prompt_template | model | parser
 chain.invoke({"language": "italian", "text": "hi"})
 ```
 
-```python
+```console
 'Ciao!'
 ```
 </details>
-
 
 ### Build a Chatbot
 
@@ -338,12 +359,12 @@ chain.invoke({"language": "italian", "text": "hi"})
 pip install langchain
 pip install -qU langchain-cohere
 ```
-```python
-import os
 
-os.environ["LANGCHAIN_TRACING_V2"] = "true"
-os.environ["LANGCHAIN_API_KEY"] = "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"
-os.environ["COHERE_API_KEY"] = "4BtT07HreyYG7DWIcOPYRq5jwU5lBEW8VkUzaBNZ"
+```python
+from dotenv import find_dotenv, load_dotenv
+
+dotenv_path = find_dotenv("../Assets/.env")
+assert load_dotenv(dotenv_path=dotenv_path), "`.env` file cannot found."
 ```
 </details>
 
@@ -357,6 +378,18 @@ from langchain_cohere import ChatCohere
 
 llm = ChatCohere(model="command-r")
 ```
+
+```bash
+pip install beautifulsoup4
+```
+
+<details>
+    <summary class="_pinksmall">$if$ `langchain_chroma` Module Error occured</summary>
+    
+```bash
+pip install langchain_chroma
+```
+</details>
 
 ```python
 import bs4
@@ -403,15 +436,19 @@ rag_chain.invoke("What is Task Decomposition?")
 ```
 
 ```python
+"Task decomposition is a process that involves breaking down complicated tasks into simpler, more manageable steps to aid an agent's planning process. It can be executed by an LLM with specific prompts, using task-specific instructions, or with human input. This technique helps enhance model performance and provides insight into the model's thought process."
+```
+
+```python
 # cleanup
 vectorstore.delete_collection()
 ```
 </details>
 
 #### Detailed Walkthrough
+
 <details>
   <summary class="_bgblue"></summary>
-
 
 ##### 1. Indexing: Load
 
@@ -431,7 +468,24 @@ len(docs[0].page_content)
 ```
 
 ```python
+43131
+```
+
+```python
 print(docs[0].page_content[:500])
+```
+
+```python
+
+
+      LLM Powered Autonomous Agents
+    
+Date: June 23, 2023  |  Estimated Reading Time: 31 min  |  Author: Lilian Weng
+
+
+Building agents with LLM (large language model) as its core controller is a cool concept. Several proof-of-concepts demos, such as AutoGPT, GPT-Engineer and BabyAGI, serve as inspiring examples. The potentiality of LLM extends beyond generating well-written copies, stories, essays and programs; it can be framed as a powerful general problem solver.
+Agent System Overview#
+In
 ```
 
 ##### 2. Indexing: Split
@@ -446,12 +500,28 @@ all_splits = text_splitter.split_documents(docs)
 
 len(all_splits)
 ```
+
+```python
+66
+```
+
 ```python
 len(all_splits[0].page_content)
 ```
+
+```python
+969
+```
+
 ```python
 all_splits[10].metadata
 ```
+
+```python
+{'source': 'https://lilianweng.github.io/posts/2023-06-23-agent/',
+ 'start_index': 7056}
+```
+
 ##### 3. Indexing: Store
 ```python
 from langchain_chroma import Chroma
@@ -461,6 +531,7 @@ vectorstore = Chroma.from_documents(documents=all_splits, embedding=OpenAIEmbedd
 ```
 
 ##### 4. Retrieval and Generation: Retrieve
+
 ```python
 retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 6})
 
@@ -468,27 +539,43 @@ retrieved_docs = retriever.invoke("What are the approaches to Task Decomposition
 
 len(retrieved_docs)
 ```
+
+```python
+6
+```
+
 ```python
 print(retrieved_docs[0].page_content)
 ```
 
+```python
+Fig. 1. Overview of a LLM-powered autonomous agent system.
+Component One: Planning#
+A complicated task usually involves many steps. An agent needs to know what they are and plan ahead.
+Task Decomposition#
+Chain of thought (CoT; Wei et al. 2022) has become a standard prompting technique for enhancing model performance on complex tasks. The model is instructed to “think step by step” to utilize more test-time computation to decompose hard tasks into smaller and simpler steps. CoT transforms big tasks into multiple manageable tasks and shed lights into an interpretation of the model’s thinking process.
+```
+
 ##### 5. Retrieval and Generation: Generate
+
 ```bash
 pip install langchain
 pip install -qU langchain-cohere
 ```
-```python
-import os
 
-os.environ["LANGCHAIN_TRACING_V2"] = "true"
-os.environ["LANGCHAIN_API_KEY"] = "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"
-os.environ["COHERE_API_KEY"] = "4BtT07HreyYG7DWIcOPYRq5jwU5lBEW8VkUzaBNZ"
+```python
+from dotenv import find_dotenv, load_dotenv
+
+dotenv_path = find_dotenv("../Assets/.env")
+assert load_dotenv(dotenv_path=dotenv_path), "`.env` file cannot found."
 ```
+
 ```python
 from langchain_cohere import ChatCohere
 
 llm = ChatCohere(model="command-r")
 ```
+
 ```python
 from langchain import hub
 
@@ -498,18 +585,139 @@ example_messages = prompt.invoke(
     {"context": "filler context", "question": "filler question"}
 ).to_messages()
 
-print(example_messages)
+example_messages
 ```
+
+```python
+[HumanMessage(content="You are an assistant for question-answering tasks. Use the following pieces of retrieved context to answer the question. If you don't know the answer, just say that you don't know. Use three sentences maximum and keep the answer concise.\nQuestion: filler question \nContext: filler context \nAnswer:")]
+```
+
 ```python
 print(example_messages[0].content)
+```
+
+```python
+You are an assistant for question-answering tasks. Use the following pieces of retrieved context to answer the question. If you don't know the answer, just say that you don't know. Use three sentences maximum and keep the answer concise.
+Question: filler question 
+Context: filler context 
+Answer:
+```
+
+```python
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.runnables import RunnablePassthrough
+
+
+def format_docs(docs):
+    return "\n\n".join(doc.page_content for doc in docs)
+
+
+rag_chain = (
+    {"context": retriever | format_docs, "question": RunnablePassthrough()}
+    | prompt
+    | llm
+    | StrOutputParser()
+)
+
+for chunk in rag_chain.stream("What is Task Decomposition?"):
+    print(chunk, end="", flush=True)
+```
+
+```python
+Task decomposition is a process that involves breaking down complex tasks into simpler, more manageable steps to make them easier to complete. This can be done in several ways, including prompting a LLM, using task-specific instructions, or seeking human input. It's a useful technique to help agents plan and execute tasks effectively.Task decomposition is a process that involves breaking down complex tasks into simpler, more manageable steps to make them easier to complete. This can be done in several ways, including prompting a LLM, using task-specific instructions, or seeking human input. It's a useful technique to help agents plan and execute tasks effectively.
+```
+
+<span class="_pinksmall">💗 Built-in Chains</span>
+
+```python
+from langchain.chains import create_retrieval_chain
+from langchain.chains.combine_documents import create_stuff_documents_chain
+from langchain_core.prompts import ChatPromptTemplate
+
+system_prompt = (
+    "You are an assistant for question-answering tasks. "
+    "Use the following pieces of retrieved context to answer "
+    "the question. If you don't know the answer, say that you "
+    "don't know. Use three sentences maximum and keep the "
+    "answer concise."
+    "\n\n"
+    "{context}"
+)
+
+prompt = ChatPromptTemplate.from_messages(
+    [
+        ("system", system_prompt),
+        ("human", "{input}"),
+    ]
+)
+
+
+question_answer_chain = create_stuff_documents_chain(llm, prompt)
+rag_chain = create_retrieval_chain(retriever, question_answer_chain)
+
+response = rag_chain.invoke({"input": "What is Task Decomposition?"})
+print(response["answer"])
+```
+
+```python
+Task decomposition is a process that breaks down complicated tasks into simpler, more manageable steps. This makes it easier for agents to plan and execute tasks by tackling smaller, more feasible objectives. There are several ways to achieve task decomposition, such as using simple prompts, task-specific instructions, or even human inputs.
+```
+
+```python
+for document in response["context"]:
+    print(document)
+    print()
+```
+
+```python
+page_content='Fig. 1. Overview of a LLM-powered autonomous agent system.\nComponent One: Planning#\nA complicated task usually involves many steps. An agent needs to know what they are and plan ahead.\nTask Decomposition#\nChain of thought (CoT; Wei et al. 2022) has become a standard prompting technique for enhancing model performance on complex tasks. The model is instructed to “think step by step” to utilize more test-time computation to decompose hard tasks into smaller and simpler steps. CoT transforms big tasks into multiple manageable tasks and shed lights into an interpretation of the model’s thinking process.' metadata={'source': 'https://lilianweng.github.io/posts/2023-06-23-agent/', 'start_index': 1585}
+
+page_content='Tree of Thoughts (Yao et al. 2023) extends CoT by exploring multiple reasoning possibilities at each step. It first decomposes the problem into multiple thought steps and generates multiple thoughts per step, creating a tree structure. The search process can be BFS (breadth-first search) or DFS (depth-first search) with each state evaluated by a classifier (via a prompt) or majority vote.\nTask decomposition can be done (1) by LLM with simple prompting like "Steps for XYZ.\\n1.", "What are the subgoals for achieving XYZ?", (2) by using task-specific instructions; e.g. "Write a story outline." for writing a novel, or (3) with human inputs.' metadata={'source': 'https://lilianweng.github.io/posts/2023-06-23-agent/', 'start_index': 2192}
+
+page_content='Resources:\n1. Internet access for searches and information gathering.\n2. Long Term memory management.\n3. GPT-3.5 powered Agents for delegation of simple tasks.\n4. File output.\n\nPerformance Evaluation:\n1. Continuously review and analyze your actions to ensure you are performing to the best of your abilities.\n2. Constructively self-criticize your big-picture behavior constantly.\n3. Reflect on past decisions and strategies to refine your approach.\n4. Every command has a cost, so be smart and efficient. Aim to complete tasks in the least number of steps.' metadata={'source': 'https://lilianweng.github.io/posts/2023-06-23-agent/', 'start_index': 29630}
+
+page_content="(3) Task execution: Expert models execute on the specific tasks and log results.\nInstruction:\n\nWith the input and the inference results, the AI assistant needs to describe the process and results. The previous stages can be formed as - User Input: {{ User Input }}, Task Planning: {{ Tasks }}, Model Selection: {{ Model Assignment }}, Task Execution: {{ Predictions }}. You must first answer the user's request in a straightforward manner. Then describe the task process and show your analysis and model inference results to the user in the first person. If inference results contain a file path, must tell the user the complete file path." metadata={'source': 'https://lilianweng.github.io/posts/2023-06-23-agent/', 'start_index': 19373}
+
+page_content='The AI assistant can parse user input to several tasks: [{"task": task, "id", task_id, "dep": dependency_task_ids, "args": {"text": text, "image": URL, "audio": URL, "video": URL}}]. The "dep" field denotes the id of the previous task which generates a new resource that the current task relies on. A special tag "-task_id" refers to the generated text image, audio and video in the dependency task with id as task_id. The task MUST be selected from the following options: {{ Available Task List }}. There is a logical relationship between tasks, please note their order. If the user input can\'t be parsed, you need to reply empty JSON. Here are several cases for your reference: {{ Demonstrations }}. The chat history is recorded as {{ Chat History }}. From this chat history, you can find the path of the user-mentioned resources for your task planning.' metadata={'source': 'https://lilianweng.github.io/posts/2023-06-23-agent/', 'start_index': 17804}
+
+page_content='Case Studies#\nScientific Discovery Agent#\nChemCrow (Bran et al. 2023) is a domain-specific example in which LLM is augmented with 13 expert-designed tools to accomplish tasks across organic synthesis, drug discovery, and materials design. The workflow, implemented in LangChain, reflects what was previously described in the ReAct and MRKLs and combines CoT reasoning with tools relevant to the tasks:\n\nThe LLM is provided with a list of tool names, descriptions of their utility, and details about the expected input/output.\nIt is then instructed to answer a user-given prompt using the tools provided when necessary. The instruction suggests the model to follow the ReAct format - Thought, Action, Action Input, Observation.' metadata={'source': 'https://lilianweng.github.io/posts/2023-06-23-agent/', 'start_index': 22305}
+```
+
+```python
+from langchain_core.prompts import PromptTemplate
+
+template = """Use the following pieces of context to answer the question at the end.
+If you don't know the answer, just say that you don't know, don't try to make up an answer.
+Use three sentences maximum and keep the answer as concise as possible.
+Always say "thanks for asking!" at the end of the answer.
+
+{context}
+
+Question: {question}
+
+Helpful Answer:"""
+custom_rag_prompt = PromptTemplate.from_template(template)
+
+rag_chain = (
+    {"context": retriever | format_docs, "question": RunnablePassthrough()}
+    | custom_rag_prompt
+    | llm
+    | StrOutputParser()
+)
+
+rag_chain.invoke("What is Task Decomposition?")
+```
+
+```python
+"Task decomposition breaks big tasks into simpler, manageable steps for an agent to follow. It uses Chain of Thought prompting or other methods to guide the agent's planning process. Thanks for asking!"
 ```
 </details>
 
 
 # *Reference*
 
-[LangChain 칼럼](https://www.ciokorea.com/column/305341#csidxb23f99cd3f147a1b27c8968f282a5a0 )  
 [LangChain Docs](https://python.langchain.com/v0.2/docs/introduction/)
+[LangChain KR](https://github.com/teddylee777/langchain-kr/tree/main)
 
 # *Footnotes*
 

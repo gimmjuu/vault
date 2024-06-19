@@ -4,45 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tag Snippet</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./style.css" />
     <style type='text/css'>
         [class*="box"] { display: flex; width: 20%; height: 50px; }
     </style>
 </head>
 <body>
-    <span style="color:pink;font-weight:600;"></span>
-    <span style="color:pink;font-style:italic;"></span>
-    <span style="color:pink;font-weight:600;font-style:italic;"></span>
+<!-- 스타일 span -->
+<span style="font-size: small;"></span>
+<span class=""></span>
 
-    <span style="color:rgba(255,255,155,0.8);font-weight:500;"></span>
-    <span style="color:rgba(255,255,155,0.8);font-style:italic;"></span>
-    <span style="color:rgba(255,255,155,0.8);font-weight:500;font-style:italic;"></span>
+<!-- 콜랩스 -->
+<details>
+    <summary class="_bgblue"></summary>
+    
+    ```bash
+    pwd
+    ```
+</details>
 
+<!-- 이미지 -->
+<center>
+    <img src="" alt="" width=48% style="margin:10 0;border-radius:3px;" />
+</center>
+<!-- 이미지 캡션 넣기 -->
+    <figure>
+    <img src="" alt="Image">
+    <figcaption>Image Caption</figcaption>
+    </figure>
 
-    <!-- 콜랩스 -->
-    <details>
-        <summary class="_bgblue"></summary>
-        
-        ```bash
-        pwd
-        ```
-    </details>
+<!-- 각주 -->
+<sup>[1](#링크키워드)</sup>
 
-    <!-- 이미지 -->
-    <center>
-        <img src="" alt="" width=48% style="margin:10 0;border-radius:3px;" />
-    </center>
-    <!-- 이미지 캡션 넣기 -->
-     <figure>
-        <img src="" alt="Image">
-        <figcaption>Image Caption</figcaption>
-     </figure>
-
-    <!-- 각주 -->
-    <sup>[1](#링크키워드)</sup>
-
-    # *Footnotes*
-    <a name="링크키워드">1.</a> 각주 내용...
+# *Footnotes*
+<a name="링크키워드">1.</a> 각주 내용...
         
 </body>
 </html>
