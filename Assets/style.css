@@ -1,16 +1,20 @@
-/* h3 { color: hsla(237deg 74% 33% / 61%); } */
+/* Pretendard Font CDN */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css');
+
+* { font-family: 'Pretendard'; }
 a { font-style: none; color: green; }
 h4 { padding: 6px 12px; }
 img { width: 48%; display: block; margin: 10px auto; ; border-radius:3px; }
 figcaption { text-align: center; font-size: 11px; opacity: 0.75; }
-/* details summary { padding-bottom:10px; } */
-details summary { margin-bottom: 10px; padding: 0px 8px; }
+details summary { margin-bottom: 10px; padding: 2px 8px; font-size: 15px; font-style: oblique; }
 
-[class*="_fontsmall"] { font-size: 13px; }
+[class*="_small"] { font-size: 13px; }
 [class*="_yellow"] { color: rgba(255,255,155,0.8); }
+[class*="_yellowbold"] { color: rgba(255,255,155,0.8); font-weight: 600; }
+[class*="_yellowsmall"] { color: rgba(255,255,155,0.8); font-size: 13px; font-weight: 600; }
 [class*="_pink"] { color: pink; }
+[class*="_pinkbold"] { color: pink; font-weight: 600; }
 [class*="_pinksmall"] { color: pink; font-size: 13px; font-weight: 600; }
-[class*="_500"] { font-weight: 500; }
 [class*="_600"] { font-weight: 600; }
 [class*="_italic"] { font-style: italic; }
 [class*="_bgred"] { background: rgba(214, 122, 127,0.10) }
@@ -22,3 +26,5 @@ details summary { margin-bottom: 10px; padding: 0px 8px; }
 [class*="_m_bt"] { margin-bottom: 10px; }
 [class*="_m_lf"] { margin-left: 10px; }
 [class*="_m_rg"] { margin-right: 10px; }
+[class*="_img60"] { width: 60%; }
+[class*="_img80"] { width: 80%; }

@@ -1,5 +1,5 @@
 ---
-date:
+created:
   2024-06-19
 tags:
   - DEVELOP

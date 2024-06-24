@@ -6,15 +6,17 @@
 - CS
   - [[memoryhierarchy]]
 
-- DB
-  - [[query]]
-
 - DEVELOP
   - [[errors]]
   - [[command]]
   - Configuration
     - [[dotenv]]
     - [[toml]]
+
+- DB
+  - [[query]]
+
+- API
 
 - LINUX
   - [[linux]]
@@ -46,3 +48,5 @@
     - [[lstm]]
     - [[transformer]]
     - [[huggingface]]
+    - LLM
+      - [[langchain]]
