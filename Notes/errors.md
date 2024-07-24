@@ -79,6 +79,18 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 ```
 
+### `docker: Error response from daemon: No command specified.`
+
+- 직접 export 한 docker-image를 사용할 때, 컨테이너 실행을 위한 command가 필요함
+```bash
+docker run -it -d usrimage:v1.0
+```
+를
+```bash
+docker run -it -d usrimage:v1.0 bash
+```
+로 수정
+
 ## 🎇 Docker & OpenCV
 
 ### `ImportError: libGL.so.1: cannot open shared object file: No such
@@ -117,6 +129,24 @@ if __name__ == "__main__":
 
 ```bash
 pip install langchain_chroma
+```
+
+## 🎇 Docker & LangChain & Jupyter notebook
+
+### `[sudo] passwork for jovyan`
+
+```bash
+docker exec -it -u root {notebook} bash
+```
+
+## 🎇 Docker & LangChain & Ollama
+
+### No model in local
+
+```bash
+curl -fsSL https://ollama.com/install.sh | sh
+command -v systemctl >/dev/null && sudo systemctl stop ollama
+ollama pull llama3
 ```
 
 # Python Error

@@ -9,6 +9,7 @@ tags:
 
 | |Command|Option|Subject| |Annotation|
 |:---:|:---|:---|:---|:---:|:---|
+| |**hostname**|-I|IP주소 확인| |`$ hostname -I`|
 | |**pwd**||현재 디렉토리 절대경로 표시| |`$ pwd`|
 |⭐|**clear**||터미널 화면 초기화| |`$ clear`|
 | |**ls**|<span style="background: rgba(255,255,0,0.2); font-weight: 600;">= list</span>|현재 디렉토리 파일 목록 {*option*} 표시| |`$ ls`|

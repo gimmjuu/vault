@@ -2,12 +2,14 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css');
 
 * { font-family: 'Pretendard'; }
-a { font-style: none; color: green; }
+a { color: inherit!important; text-decoration: none!important; }
+a:hover { font-weight: bold; }
 h4 { padding: 6px 12px; }
 img { width: 48%; display: block; margin: 10px auto; ; border-radius:3px; }
 figcaption { text-align: center; font-size: 11px; opacity: 0.75; }
 details summary { margin-bottom: 10px; padding: 2px 8px; font-size: 15px; font-style: oblique; }
 
+[class*="_big"] { font-size: 24px; }
 [class*="_small"] { font-size: 13px; }
 [class*="_yellow"] { color: rgba(255,255,155,0.8); }
 [class*="_yellowbold"] { color: rgba(255,255,155,0.8); font-weight: 600; }
