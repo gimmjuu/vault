@@ -25,7 +25,7 @@ RUN apt-get install -y libgl1-mesa-glx
 RUN apt-get install -y libglib2.0-dev
 RUN pip install --upgrade pip
 # RUN pip install opencv-python-headless quart quart_cors
-RUN pip install opencv-python-headless ultralytics flask websockets
+RUN pip install flask opencv-python-headless websockets ultralytics
 RUN ln -snf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
 # Directory where commands from RUN, CMD, and ENTRYPOINT inside the image were executed
 WORKDIR /app
