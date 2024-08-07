@@ -200,22 +200,22 @@ docker rm $(docker ps --filter "exited=0" -a -q)
 ### 방법 1 : etc. container + jupyter module
 
 ```bash
-$ docker run -it -d - -name {jupyter} - -gqus all -p 8888:8888 -v $(pwd):/workspace {non-jupyter-image:tag}
+$ docker run -it -d --name {container name} --gqus all -p 8888:8888 -v $(pwd):/workspace {non-jupyter-image:tag}
 
-$ docker exec -it {jupyter} bash
+$ docker exec -it {container name} bash
 
 $ pip install jupyter
 
-$ jupyter notebook - -ip 0.0.0.0 - -allow-root
+$ jupyter notebook --ip 0.0.0.0 --allow-root
 ```
 
 #### ⚡ [other case] 이미 생성한 컨테이너
-	$ docker exec -it {jupyter} jupyter notebook - -ip 0.0.0.0 - -allow-root
+	$ docker exec -it {container name} jupyter notebook --ip 0.0.0.0 --allow-root
 
 ### 방법 2 : jupyter-notebook container
-	$ docker run -it -d - -name {jupyter} - -gqus all -p 8888:8888 -v $(pwd):/workspace {jupyter-image:tag}
+	$ docker run -it -d --name {container name} --gqus all -p 8888:8888 -v $(pwd):/workspace {jupyter-image:tag}
 
-	$ docker logs -f {jupyter}
+	$ docker logs -f {container name}
 
 ### Finally 공통
 ➰　컨테이너 실행 후 jupyter-notebook URL 접속 및 token 입력
