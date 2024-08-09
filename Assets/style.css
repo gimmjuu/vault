@@ -28,5 +28,6 @@ details summary { margin-bottom: 10px; padding: 2px 8px; font-size: 15px; font-s
 [class*="_m_bt"] { margin-bottom: 10px; }
 [class*="_m_lf"] { margin-left: 10px; }
 [class*="_m_rg"] { margin-right: 10px; }
+[class*="_indented"] { padding-left: 40px; }
 [class*="_img60"] { width: 60%; }
 [class*="_img80"] { width: 80%; }
