@@ -1309,7 +1309,7 @@ tags:
 - 모든 디스크 볼륨은 NTFS 파일 시스템을 사용
 </details>
 
-## CBT 기출문제
+## CBT
 
 ### 2024.05.19
 
@@ -1518,4 +1518,44 @@ tags:
 
 ### 2023.05.21
 
-- 
+- D CLASS: 멀티캐스트 용도
+- DNS TTL: 데이터가 DNS 서버 캐시로부터 나오기 전 현재 남은 시간
+- RARP: Reversed ARP
+- Echo Request: 8
+- TCP/IP 4계층
+    - APPLICATION
+    - TRANSPORT
+    - INTERNET
+    - NETWORK INTERFACE
+- Zigbee: 저전력, 저가격, 근거리, IEEE 802.15.4
+- Adaptive ARP: 적응형 ARP, 프레임 길이를 동적으로 변경
+- 표현계층: TEXT 압축, 암호화
+- IPSec: VPN 터널링 프로토콜
+- SIP(Session Initation Protocol): 시그널링 프로토콜, IP 주소에 종속되지 않고 서비스를 받을 수 있음
+- 기가비트 이더넷 규격: 1000BASE-T, 1000BASE-SX, 1000BASE-LX, 1000BASE-CX, 1000BASE-TX
+- 핸드오프(핸드오버): 현재 사용 중인 셀에서 다른 셀로 이동 시, 끊김 없도록 통화 채널을 바꿈
+- DNS CNAME: 별칭, 서브도메인 아님 주의
+- Bit Locker: 메인보드와 BIOS에서 TPM 보안칩과 연동해야 함
+- perfmon: Windows Server 성능 모니터 도구 시작 명령어
+- lsattr: 해당 디렉터리 내 파일의 사용자 권한 확인 명령어
+- nohup(no hang up): 터미널을 닫아도 실행 중인 프로세스를 백그라운드에서 작업
+- ipconfig/flushdns : DNS cache 초기화 명령어
+- Windows Server 도메인 사용자 계정 관리 명령어
+    - dsadd
+    - dsrm
+- lastb: 비인가자 로그인 실패 시도 이력 확인 명령어
+- xferlog: FTP 서버 전송 로그 확인 명령어
+- history: 명령어 실행 이력 확인 명령어
+- pkill: 프로세스를 신호로 종료시키는 명령어
+- TCP 포드: 논리적인 포트
+- IEEE 802.11
+    - Wifi4 = 11n
+    - Wifi5 = 11ac
+    - Wifi6 = 11ax
+- netstat: Linux 상 열려있는 port 정보를 확인하는 명령어
+- getenforce: 현재 SELinux 모드 출력 명령어
+- ps: 현재 실행 중인 프로세스를 확인하는 명령어
+- pstree: 프로세스를 트리구조로 출력하는 명령어
+
+### 2023.02.26
+
