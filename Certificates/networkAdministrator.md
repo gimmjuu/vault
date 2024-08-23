@@ -1527,7 +1527,7 @@ tags:
     - TRANSPORT
     - INTERNET
     - NETWORK INTERFACE
-- Zigbee: 저전력, 저가격, 근거리, IEEE 802.15.4
+- ZigBee: 저전력, 저가격, 근거리, IEEE 802.15.4
 - Adaptive ARP: 적응형 ARP, 프레임 길이를 동적으로 변경
 - 표현계층: TEXT 압축, 암호화
 - IPSec: VPN 터널링 프로토콜
@@ -1559,3 +1559,69 @@ tags:
 
 ### 2023.02.26
 
+- 이웃 요청과 광고 메시지: ICMPv6에서 특정 호스트로의 전달 가능 여부 검사용 메시지
+- Sliding Window: TCP 수신측 버퍼 크기에 맞춰 데이터 크기를 송신측에서 적절하게 조절할 수 있는 필드
+- IGMP: 인터넷 멀티캐스트용 프로토콜
+- TTL: 살아서 거친 라우터 개수! (초 단위 시간 값 X)
+- HTTPS: 기본포트 443
+- Wireless Mesh Network: 애드 혹 네트워크, 무선 분산 시스템, AP에 접속하지 않은 어쩌구~
+- Sink: 센서 네트워크에서 센서 노드들의 센싱 데이터를 수집하는 노드
+- WPAN(Wireless Personal Area Network): 스마트홈 기술, UWB, ZigBee, 블루투스 등
+- DNS 서버 레코드 형식
+    - A: 32비트 IPv4 주소에 연결
+    - AAAA: 128비트 IPv6 주소에 연결
+    - CNAME: 별칭, 가상 도메인 이름
+- NS: 네임 서버, 특정 도메인의 DNS 정보를 관리하는 서버
+- Windows Server IIS 관리자: 
+- $ man ls: 'ls' 명령어 매뉴얼 출력
+- NTFS
+    - 퍼미션 사용 가능, 접근 권한을 사용자 별로 설정
+    - 파일 시스템 암호화 지원
+- ReFS: 데이터 오류를 자동으로 확인하고 수정(NTFS 기반)
+- Windows 기본 계정: Administrator, DefaultAccount, Guest
+- root: 리눅스 계정
+- FTP: 20번 포트는 데이터 전송, 21번 포트는 제어용
+- $ ifconfig | renew : 새로운 IP 주소 할당 요청
+- DCHP: 가변 IP
+- NAT: 사설 IP
+- 리피터(Repeater): 물리계층(1계층) 장비
+- RAID : 회전 패리티, 패리티 비트
+- RAID 6: 이중 패리티
+- RAID 10: RAID 1 + RAID 0
+- RIPv1: 브로드캐스트
+- RIPv2: 멀티캐스트
+- runlevel 0: 종료
+- runlevel 3: 다중사용자모드
+- runlevel 5: 다중사용자모드, GUI
+- runlevel 6: 재부팅
+
+### 2022.11.06
+
+- OSPF: 링크 상태(Link State) 라우팅 프로토콜, 동적 라우팅 프로토콜
+- 유니캐스트: 단순 일대일
+- 애니캐스트: 최근접 일대일
+- 브로드캐스트: 단일송신-전체수신
+- 멀티캐스트: 단일송신-다중수신
+- Checksum: TCP 에러제어 헤더
+- IGMP: TCP/IP 기반, Multicast
+- 클라우드 컴퓨팅 시스템
+    - SaaS: 소프트웨어 애플리케이션
+    - PaaS: 개발 플랫폼
+    - IaaS: 가상화 컴퓨팅 리소스
+    - BPaaS: 백업 및 재해 복구 솔루션
+- Multiplexing: 하나의 클라이언트가 여러 회선으로 수신 후 송신측에서 다시 여러 회선으로 나눔
+- SDN(Software Defined Network): 소프트웨어 정의 네트워크, 라우터나 스위치 같은 네트워크 기기의 구성이나 연결 경로 등을 물리적인 기기의 도입과 배선 작업 없이 소프트웨어 설정 만으로 구현할 수 있는 기술
+- PSDN(Public Switched Data Network): 공공교환데이터네트워크
+- VPN(Virtual Private Network): 가상 전용 네트워크
+- 저장소 복제: Windows Server에서 데이터 손실없이 동기 복제 제공, 데이터 손실 없이 백업 가능
+- /etc/fstab: file system table
+- ARP: Host(A) 레코드
+- RARP: Pointer(PTR) 레코드
+- $ nslookup {domain}: 도메인 호스트의 IP 주소 검색
+- DFS(Distributed File System): 분산 파일 시스템
+- ACK 필드 -> TCP 헤더에 포함
+
+### 2022.08.21
+
+- 버스 토폴로지: 터미네이터가 시그널의 반사를 방지하게 위해 사용됨
+- IIS(Internet Information Services): 인터넷 정보 서비스, FTP를 구축, 운영하기 위해 먼저 설치되어 있어야 하는 서버
