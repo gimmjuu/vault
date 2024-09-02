@@ -1,7 +1,14 @@
 ---
+created:
+    2024-00-00
 tags:
-  - TAG ONLY CAPITAL
+    - TAG ONLY CAPITAL
 ---
+
+<link rel="stylesheet" href="../Assets/style.css" />
+<style>
+    h3 { padding: 7px 10px 8px; background-color: rgba(175, 239, 255, 0.05); border-radius: 3px; border: none; }
+</style>
 
 <span class=""></span>
 <sup>*</sup>
