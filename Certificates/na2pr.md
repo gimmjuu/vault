@@ -20,10 +20,21 @@ tags:
 
 ### 라우터 에뮬레이터
 
+<details>
+  <summary>♧ 라우터 기본 명령어</summary>
+
+|명령어|단축<br>명령어|동작|
+|:-:|:-:|:-|
+|enable|en|관리자 설정 모드 진입|
+|configure terminal|conf t|전역 설정 모드 진입|
+||||
+
+</details>
+
 #### 라우터 IP/서브넷 마스크 설정
 
 ```
-문제) ROUTER 1의 FastEthernet 0/0의 IP를 192.168.0.100/24로 설정하시오.
+q/ ROUTER 1의 FastEthernet 0/0의 IP를 192.168.0.100/24로 설정하시오.
     (완료된 설정은 startup-config에 저장하시오.)
 ```
 
@@ -61,7 +72,7 @@ copy r s # (copy running-config startup-config)
 > 저장 명령어는 모든 문제가 동일함 → 설정 명령어 부분 집중 숙지
 
 ```
-문제1) ROUTER2의 Serial 2/0의 대역폭을 2048로 설정하시오.
+q-1/ ROUTER2의 Serial 2/0의 대역폭을 2048로 설정하시오.
     (완료된 설정은 'Router#copy running-config startup-config'를 사용하여 stratup-config에 저장하고 이외 저장 명령어는 사용금지)
 ```
 ```sh
@@ -76,7 +87,7 @@ copy r s  # 저장 명령어, 모든 라우터 문제의 끝
 ```
 
 ```
-문제2) ROUTER1의 Serial 2/0의 클럭 속도를 72K로 설정하시오.
+q-2/ ROUTER1의 Serial 2/0의 클럭 속도를 72K로 설정하시오.
     (완료된 설정은 'Router#copy running-config startup-config'를 사용하여 startup-config에 저장하고 이외 저장 명령어는 사용금지)
 ```
 ```sh
@@ -93,7 +104,7 @@ copy r s
 #### 라우터 주석 설정
 
 ```
-문제) FastEthernet 0/0의 Description을 설정하시오.
+q/ FastEthernet 0/0의 Description을 설정하시오.
     Description : ICQA
     (완료된 설정은 'Router#copy running-config startup-config'를 사용하여 startup-config에 저장하고 이외 저장 명령어는 사용금지)
 ```
@@ -111,7 +122,7 @@ copy r s    # 설정 파일 저장
 #### 라우터 Secondary IP Address 설정
 
 ```
-문제) ROUTER1의 Serial 2/0을 사용가능하게 IP 주소를 192.168.0.101/24와 두번째 IP 192.168.0.102/24로 설정하고 활성화 하시오.
+q/ ROUTER1의 Serial 2/0을 사용가능하게 IP 주소를 192.168.0.101/24와 두번째 IP 192.168.0.102/24로 설정하고 활성화 하시오.
     (완료된 설정은 'Router#copy running-config startup-config'를 사용하여 startup-config에 저장하고 이외 저장 명령어는 사용금지)
 ```
 ```sh
@@ -131,7 +142,7 @@ copy r s
 #### 라우터 기본 게이트웨이
 
 ```
-문제1) 기본 게이트웨이를 설정하시오. IP: 192.168.0.10
+q-1/ 기본 게이트웨이를 설정하시오. IP: 192.168.0.10
     (완료된 설정은 'Router#copy running-config startup-config'를 사용하여 startup-config에 저장하고 이외 저장 명령어는 사용금지)
 ```
 ```sh
@@ -144,7 +155,7 @@ copy r s
 ```
 
 ```
-문제2) ROUTER1의 DHCP 네트워크를 192.168.100.0/24 서버 이름은 'icqa'로 설정하시오. 
+q-2/ ROUTER1의 DHCP 네트워크를 192.168.100.0/24 서버 이름은 'icqa'로 설정하시오. 
     (완료된 설정은 'Router#copy running-config startup-config'를 사용하여 startup-config에 저장하고 이외 저장 명령어는 사용금지)
 ```
 ```sh
@@ -162,7 +173,7 @@ copy r s
 #### 라우터 텔넷 패스워크 설정
 
 ```
-문제) ROUTER1 Telnet에 접근하는 Password를 icqa로 설정하고 로그인 하시오.
+q/ ROUTER1 Telnet에 접근하는 Password를 icqa로 설정하고 로그인 하시오.
     (완료된 설정은 'Router#copy running-config startup-config'를 사용하여 startup-config에 저장하고 이외 저장 명령어는 사용금지)
 ```
 ```sh
@@ -180,7 +191,7 @@ copy r s
 #### 라우터 텔넷 세션 자동종료 설정
 
 ```
-문제) 텔넷 연결 후 3분 50초 동안 입력이 없으면 세션이 자동 종료 되도록 설정하시오.
+q/ 텔넷 연결 후 3분 50초 동안 입력이 없으면 세션이 자동 종료 되도록 설정하시오.
     (완료된 설정은 'Router#copy running-config startup-config'를 사용하여 startup-config에 저장하고 이외 저장 명령어는 사용금지)
 ```
 ```sh
@@ -197,7 +208,7 @@ copy r s
 #### 라우터 콘솔 패스워드 설정
 
 ```
-문제) ROUTER1 console 0의 패스워드를 ICQA로 설정하고 로그인하시오.
+q/ ROUTER1 console 0의 패스워드를 ICQA로 설정하고 로그인하시오.
     (완료된 설정은 ...)
 ```
 ```sh
@@ -215,7 +226,7 @@ copy r s
 #### 라우터 활성화 설정
 
 ```
-문제) ROUTER 1 Serial 2/0을 활성화 시키시오.
+q/ ROUTER 1 Serial 2/0을 활성화 시키시오.
 ```
 ```sh
 # ROUTER 1 선택
@@ -231,7 +242,7 @@ copy r s
 #### 라우터 호스트 네임 설정
 
 ```
-문제) Hostname을 network2로 변경하고 console 0의 password를 route5로 변경한 후 로그인 하시오.
+q/ Hostname을 network2로 변경하고 console 0의 password를 route5로 변경한 후 로그인 하시오.
 ```
 ```sh
 # ROUTER 선택
@@ -249,7 +260,7 @@ copy r s
 #### 라우터 확인문제 유형 분석
 
 ```
-문제) 인터페이스 정보를 확인하고 저장하시오.
+q/ 인터페이스 정보를 확인하고 저장하시오.
 ```
 ```sh
 # ROUTER 선택
@@ -258,7 +269,7 @@ show interface  # show ~ : 정보 확인
 copy r s
 ```
 ```
-문제) 접속한 사용자 정보를 확인하고 저장하시오.
+q/ 접속한 사용자 정보를 확인하고 저장하시오.
 ```
 ```sh
 # ROUTER 선택
@@ -267,7 +278,7 @@ show user
 copy r s
 ```
 ```
-문제) 라우팅 테이블 정보를 확인하고 저장하시오.
+q/ 라우팅 테이블 정보를 확인하고 저장하시오.
 ```
 ```sh
 # ROUTER 선택
@@ -276,7 +287,7 @@ show ip route
 copy r s
 ```
 ```
-문제) 플래쉬 내용을 확인하고 저장하시오.
+q/ 플래쉬 내용을 확인하고 저장하시오.
 ```
 ```sh
 # ROUTER 선택
@@ -285,7 +296,7 @@ show flash
 copy r s
 ```
 ```
-문제) 프로세스 정보를 확인하고 저장하시오.
+q/ 프로세스 정보를 확인하고 저장하시오.
 ```
 ```sh
 # ROUTER 선택
@@ -326,7 +337,7 @@ copy r s
 #### 윈도우 서버 TCP/IP 설정
 
 ```
-문제) 네트워크 환경에 <제시 문제>와 같이 IP 주소와 서브넷 마스크를 추가하시오.
+q/ 네트워크 환경에 <제시 문제>와 같이 IP 주소와 서브넷 마스크를 추가하시오.
     - IP Address:
         10101100.00010000.10010110.01110011
     - Subnet Mask:
@@ -354,7 +365,7 @@ copy r s
 #### 윈도우 서버 DNS 설정
 
 ```
-문제) 관리도구에 <제시 문제>와 같이 DNS 서버를 설정하시오.
+q/ 관리도구에 <제시 문제>와 같이 DNS 서버를 설정하시오.
 @IN SOA ns.icqa.or.kr admin.icqa.or.kr(
     10 ; Serial
     15분 ; Refresh
@@ -388,7 +399,7 @@ ftp IN CNAME www
 #### 윈도우 서버 DHCP 설정
 
 ```
-문제) 아래의 <보기>와 같이 IP를 할당할 수 있는 DHCP를 설정하시오.
+q/ 아래의 <보기>와 같이 IP를 할당할 수 있는 DHCP를 설정하시오.
 1. 범위 이름: 네트워크관리사
 2. 설명: 한국정보통신자격협회
 3. 분배할 주소 범위: 192.168.106.1 ~ 254
@@ -415,7 +426,7 @@ ftp IN CNAME www
 #### 윈도우 서버 IIS FTP 서버 설정
 
 ```
-문제) 아래의 <보기>와 같이 FTP 사이트를 추가 및 설정하시오.
+q/ 아래의 <보기>와 같이 FTP 사이트를 추가 및 설정하시오.
 1. FTP 사이트 이름: ICQA
 2. 실제경로: C:\inetpub\ftproot
 3. IP주소: 192.168.100.10, 포틔 2121
@@ -436,7 +447,7 @@ ftp IN CNAME www
 #### 윈도우 서버 IIS 웹사이트 추가 및 설정
 
 ```
-문제) 아래의 [보기]와 같이 Web 사이트를 추가 설정하시오.
+q/ 아래의 [보기]와 같이 Web 사이트를 추가 설정하시오.
 1. 웹사이트 이름: ICQA
 2. 실제 경로: C:\inetpub\ftproot
 3. 웹사이트IP 주소: 192.168.100.10
@@ -458,7 +469,7 @@ ftp IN CNAME www
 #### 윈도우 서버 계정 추가
 
 ```
-문제) 아래의 <보기>와 같이 계정을 추가 설정하시오.
+q/ 아래의 <보기>와 같이 계정을 추가 설정하시오.
 1. ID: ICQA
 2. Password: ICQAPass
 3. 전체 이름: 전체관리자
@@ -480,7 +491,7 @@ ftp IN CNAME www
 #### 윈도우 서버 로컬보안정책 설정
 
 ```
-문제) 아래의 <보기>와 같이 로컬보안정책을 설정하시오.
+q/ 아래의 <보기>와 같이 로컬보안정책을 설정하시오.
 1. 패스워드는 최소 10일에서 최대 20일 사용
 2. 패스워드는 3번 로그인 실패 시 30분간 계정 잠금
 ```
@@ -496,7 +507,7 @@ ftp IN CNAME www
 #### 윈도우 서버 서비스 설정
 
 ```
-문제) 아래의 <보기>와 같이 서비스를 설정하시오.
+q/ 아래의 <보기>와 같이 서비스를 설정하시오.
 원격 사용자가 Telnet을 이용하여 파일을 삭제하여 왔으나 정책이 변경되어 원격 사용자가 더 이상 로그온 할 필요가 없어졌다. 해당 기능을 중지시키고, 다시 시작할 수 없게 설정하시오.
 ```
 ```
