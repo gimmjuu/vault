@@ -1048,10 +1048,10 @@ netstat
 
 1. TCP/IP 4계층의 각 계층에 속하는 프로토콜을 고르시오.
 
-    네트워크 액세스 계층: 리피터, 허브, FDDI, HDLC, ISDN, ATM, WIFI
-    인터넷 계층: ARP, RARP, IGMP, ICMP
-    전송 계층: TCP, UDP
-    응용 계층: SMTP, HTTP, POP3, FTP, DHCP, DNS, Telnet
+    네트워크 액세스 계층: 리피터, 허브, FDDI, HDLC, ISDN, ATM, WIFI  
+    인터넷 계층: ARP, RARP, IGMP, ICMP  
+    전송 계층: TCP, UDP  
+    응용 계층: SMTP, HTTP, POP3, FTP, DHCP, DNS, Telnet  
 
 2. 주어진 IP, Subnet mask에 대해 네트워크 ID를 구하시오.
 - [유형1] 172.168.102.5/19
