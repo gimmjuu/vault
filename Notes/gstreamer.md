@@ -48,7 +48,7 @@ tags:
     * 하위 요소에 대한 동기화 관리
 
 <figure>
-    <img src="../Assets/Images/" alt="bin & pipeline">
+    <img src="" alt="bin & pipeline">
     <figcaption>[출처] Medium | [Gstreamer] Gstreamer 기초 | https://medium.com/may-i-lab/gstreamer-gstreamer-%EA%B8%B0%EC%B4%88-da5015f531fc</figcaption>
 </figure>
 
